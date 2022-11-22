@@ -10,15 +10,46 @@
 
 
 
-let littleMermaid = (prompt(`How many days did you rent The Little Mermaid?`));
-let brotherBear = (prompt(`How many days did you rent Brother Bear?`));
-let hercules = (prompt(`How many days did you rent Hercules?`));
-let pricePerDay = (prompt(`What is the cost per day to rent a movie?`));
-let newTotalCost = (parseInt(littleMermaid) + parseInt(brotherBear) + parseInt(hercules)) * parseInt(pricePerDay);
-
-alert(`Great, you rented The Little Mermaid for ${littleMermaid} days, Brother Bear for ${brotherBear} days and Hercules for ${hercules} days.  At a price per day of $ ${pricePerDay} per day, your total cost is $ ${newTotalCost}.`);
+// let littleMermaid = (prompt(`How many days did you rent The Little Mermaid?`));
+// let brotherBear = (prompt(`How many days did you rent Brother Bear?`));
+// let hercules = (prompt(`How many days did you rent Hercules?`));
+// let pricePerDay = (prompt(`What is the cost per day to rent a movie?`));
+// let newTotalCost = (parseInt(littleMermaid) + parseInt(brotherBear) + parseInt(hercules)) * parseInt(pricePerDay);
+//
+// alert(`Great, you rented The Little Mermaid for ${littleMermaid} days, Brother Bear for ${brotherBear} days and Hercules for ${hercules} days.  At a price per day of $ ${pricePerDay} per day, your total cost is $ ${newTotalCost}.`);
 
 // const movies = [`The Little Mermaid`,`Brother Bear`,'Hercules'];
 
 //next, i want to control the variables from an array
 //then trim white space and convert to camelCase
+
+
+function lifeInWeeks() {
+    let age = prompt(`How old are you?`)
+    let ageInWeeks
+
+    alert(`You have been alive for ` + ageInMonths + ` weeks!`);
+}
+
+lifeInWeeks();
+
+
+// function functionName(){
+//     //traditional
+// }
+// functionName();
+
+
+// let functionName2 = function(){
+//     //return expression
+//     //more like a function-variable
+//     //must call function immediately
+// }
+// functionName2();
+
+
+//arrow functions
+
+const doubleX = x => x * 2;
+
+doubleX();
