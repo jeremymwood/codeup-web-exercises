@@ -149,3 +149,6 @@ function applyDiscount(originalPrice,discountPercentage) {
 
 
 console.log(`Your discounted price is $` + applyDiscount(originalPrice, discountPercentage) + `.`);
+
+
+//check for push after moving local directory
