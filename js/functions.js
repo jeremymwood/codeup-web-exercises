@@ -6,31 +6,29 @@
  * When called, the function should return a message that says hello to the passed in name.
  *
  * Example
- * > sayHello("codeup") // returns "Hello, codeup!"
+ * > sayHello("codeUp") // returns "Hello, codeUp!"
  */
-
-// function sayHello(name) {
-//     return (`Hello ` + name + `.`);
-// }
-
-// sayHello(`codeUp`);
-
-/**
- * TODO:
- * Call the function 'sayHello' and pass your name as a string literal argument.
- * Store the result of the function call in a variable named 'numberMessage'.
- *
- * console.log 'numberMessage' to check your work
- */
-let myName = `Jeremy`;
-
-let helloMessage = sayHello(myName);
-console.log(helloMessage);
 
 
 function sayHello(name) {
     return (`Hello ` + name + `.`);
 }
+
+console.log(sayHello(`Jeremy 1`));
+
+
+/**
+ * TODO:
+ * Call the function 'sayHello' and pass your name as a string literal argument.
+ * Store the result of the function call in a variable named 'helloMessage'.
+ *
+ * console.log 'helloMessage' to check your work
+ */
+
+
+let helloMessage = sayHello(`Jeremy 2`);
+console.log(helloMessage);
+
 
 /**
  * TODO:
@@ -39,9 +37,14 @@ function sayHello(name) {
  * console.
  */
 
+
+let myName = `Jeremy 3`;
+console.log(sayHello(myName));
+
+
 // Don't modify the following line, it generates a random number between 1 and 3
 // and stores it in a variable named random
-var random = Math.floor((Math.random() * 3) + 1);
+let random = Math.floor((Math.random() * 3) + 1);
 
 /**
  * TODO:
@@ -64,15 +67,12 @@ var random = Math.floor((Math.random() * 3) + 1);
 let number = 2;
 
 function isTwo(x) {
-    if (x === number) {
-        return true;
-    }
-
-    return false;
+    return x === number;
 }
 
-console.log((random) + ` = ` + number +    ` (` + isTwo(random) + `)`);
-
+console.log(`${random} = ${number} (${isTwo(random)})`);
+//
+// console.log((random) + ` = ` + number +    ` (` + isTwo(random) + `)`);
 
 
 /**
@@ -87,16 +87,21 @@ console.log((random) + ` = ` + number +    ` (` + isTwo(random) + `)`);
  * > calculateTip(0.15, 33.42) // returns 5.013
  */
 
+// first todo
 // let billAmount = 33.42;
 // let tipPercentage = 0.15;
 //
+// second todo
+// let billAmount = prompt(`What is your bill amount?`);
+// let tipPercentage = prompt(`What percentage would you like to tip?`);
+//
 // function calculateTip(billAmount,tipPercentage) {
 //     return (billAmount * tipPercentage);
-// };
+// }
 //
 // function calculateTotal(billAmount,tipPercentage) {
 //     return (billAmount * (1 + tipPercentage));
-// };
+// }
 //
 // console.log(`The tip amount for a $` + billAmount +    ` meal is $` + calculateTip(billAmount, tipPercentage) + `.`);
 //
@@ -109,21 +114,7 @@ console.log((random) + ` = ` + number +    ` (` + isTwo(random) + `)`);
  * then display the dollar amount they should tip
  */
 
-
-// let billAmount = prompt(`What is your bill amount?`);
-// let tipPercentage = prompt(`What percentage would you like to tip?`);
-//
-// function calculateTip(billAmount,tipPercentage) {
-//     return (billAmount * tipPercentage);
-// };
-//
-// function calculateTotal(billAmount,tipPercentage) {
-//     return (billAmount * (1 + tipPercentage));
-// };
-//
-// console.log(`A ` + (tipPercentage * 100) + `% tip for a $` + billAmount +    ` meal is $` + calculateTip(billAmount, tipPercentage) + `.`);
-//
-// console.log(`The total bill is $` + calculateTotal(billAmount, tipPercentage) + `.`);
+// redefined variables inserted above to precede function call
 
 /**
  * TODO:
@@ -145,10 +136,43 @@ let discountPercentage = 0.2;
 
 function applyDiscount(originalPrice,discountPercentage) {
     return (originalPrice - (originalPrice * discountPercentage));
-};
-
+}
 
 console.log(`Your discounted price is $` + applyDiscount(originalPrice, discountPercentage) + `.`);
 
 
 //check for push after moving local directory
+
+//blackjack game
+// math floor 1-11
+//deal two cards, prompt to hit or stay
+//check if less than or equal to 21
+
+
+// console.log(`\n\n*** BLACKJACK GAME ***`);
+//
+// let firstCard = Math.floor((Math.random() * 11) + 1);
+// let secondCard = Math.floor((Math.random() *11) + 1);
+// let thirdCard = Math.floor((Math.random() *11) + 1);
+//
+// let firstScore = (firstCard + secondCard);
+// let secondScore = (firstScore + thirdCard);
+//
+// let firstMove = prompt(`${firstCard} + ${secondCard} = ${firstScore}.\nHit or stay?`);
+// let secondMove = prompt(`${firstCard} + ${secondCard} + ${thirdCard} = ${secondScore}.\nHit or stay?`);
+//
+// switch(firstMove) {
+//     case `hit`:
+//         console.log(`${firstCard} + ${secondCard} + ${thirdCard} = $`);
+//         break;
+//     case `stay`:
+//         alert(`stay`);
+//         break;
+//     default:
+//         alert(`please advise`);
+//         break;
+// }
+//
+// console.log(firstMove);
+//
+// // console.log(`Your current score is ` + (firstCard + secondCard) + `.  Would you like to hit or stay?`);
