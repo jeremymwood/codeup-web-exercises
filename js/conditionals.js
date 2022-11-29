@@ -99,34 +99,34 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  */
 // let userInputColor = prompt(`What is your favorite color?`);
 
-function analyzeColorAgain(x) {
-    switch(x) {
-        case `red`:
-            alert(`tomatoes are red`);
-            break;
-        case `orange`:
-            alert(`the sun is orange`);
-            break;
-        case `yellow`:
-            alert(`lemonade is yellow`);
-            break;
-        case `green`:
-            alert(`the grass is green`);
-            break;
-        case `blue`:
-            alert(`the sky is blue`);
-            break;
-        case `indigo`:
-            alert(`blue jeans are indigo`);
-            break;
-        case `violet`:
-            alert(`the grass is green`);
-            break;
-        default:
-            alert(`i'm color blind`);
-            break;
-    }
-}
+// function analyzeColorAgain(x) {
+//     switch(x) {
+//         case `red`:
+//             alert(`tomatoes are red`);
+//             break;
+//         case `orange`:
+//             alert(`the sun is orange`);
+//             break;
+//         case `yellow`:
+//             alert(`lemonade is yellow`);
+//             break;
+//         case `green`:
+//             alert(`the grass is green`);
+//             break;
+//         case `blue`:
+//             alert(`the sky is blue`);
+//             break;
+//         case `indigo`:
+//             alert(`blue jeans are indigo`);
+//             break;
+//         case `violet`:
+//             alert(`the grass is green`);
+//             break;
+//         default:
+//             alert(`i'm color blind`);
+//             break;
+//     }
+// }
 
 // console.log(analyzeColorAgain(userInputColor));
 
@@ -201,36 +201,36 @@ function analyzeColorAgain(x) {
 
 
 
-let totalAmount = prompt(`What is your total bill?`);
-let luckyNumber = Math.floor(Math.random() * 6);
-
-function discount(luckyNumber) {
-    switch (luckyNumber) {
-        case 0:
-            return 0;
-            break;
-        case 1:
-            return 10;
-            break;
-        case 2:
-            return 25;
-            break;
-        case 3:
-            return 35;
-            break;
-        case 4:
-            return 50;
-            break;
-        default:
-            return 100;
-    }
-}
-
-function calculateTotal(luckyNumber , totalAmount) {
-    return (totalAmount - ((discount(luckyNumber) / 100) * totalAmount));
-}
-
-alert(`Your total before discount is $${totalAmount}. \nYour lucky number is ${luckyNumber} (${discount(luckyNumber)}% off). \nYour new total is $${calculateTotal(luckyNumber , totalAmount)}.`);
+// let totalAmount = prompt(`What is your total bill?`);
+// let luckyNumber = Math.floor(Math.random() * 6);
+//
+// function discount(luckyNumber) {
+//     switch (luckyNumber) {
+//         case 0:
+//             return 0;
+//             break;
+//         case 1:
+//             return 10;
+//             break;
+//         case 2:
+//             return 25;
+//             break;
+//         case 3:
+//             return 35;
+//             break;
+//         case 4:
+//             return 50;
+//             break;
+//         default:
+//             return 100;
+//     }
+// }
+//
+// function calculateTotal(luckyNumber , totalAmount) {
+//     return (totalAmount - ((discount(luckyNumber) / 100) * totalAmount));
+// }
+//
+// alert(`Your total before discount is $${totalAmount}. \nYour lucky number is ${luckyNumber} (${discount(luckyNumber)}% off). \nYour new total is $${calculateTotal(luckyNumber , totalAmount)}.`);
 
 
 /**
@@ -254,9 +254,19 @@ alert(`Your total before discount is $${totalAmount}. \nYour lucky number is ${l
 
 let confirmNumber = confirm(`Would you like to enter a number?`);
 
-if(confirmNumber = 1) {
+if(confirmNumber == 1) {
     const favoriteNumber = prompt(`What is your favorite number?`)
-    if(favoriteNumber % 2 === 0) {
-           alert(`${favoriteNumber} is even`)
-        }   else alert(`${favoriteNumber} is odd.`)
-}
+    if (isNaN(favoriteNumber) == 1) {
+        alert(`Not into numbers huh?`)
+    } else {
+        const favNumSum = parseInt(favoriteNumber) + 100;
+        if(favoriteNumber % 2 === 0) {
+            alert(`${favoriteNumber} is even`)
+        } else
+            alert(`${favoriteNumber} is odd.`)
+        alert(`${favoriteNumber} + 100 = ${favNumSum}`)
+        if(favoriteNumber < 0) {
+            alert(`${favoriteNumber} is negative`)
+        }   else alert(`${favoriteNumber} is positive.`)
+    }
+}   else alert(`Suit yourself.`);
