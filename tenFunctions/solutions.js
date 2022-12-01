@@ -23,11 +23,7 @@
 
 //problem 1
 function isTrue(x) {
-    if(x === true) {
-        return true;
-    } else {
-        return false;
-    }
+    return x === true;
 }
 
 console.log(isTrue(true));
@@ -57,15 +53,11 @@ function addOne(x) {
     }
 }
 
-console.log(addOne(`23`));
+console.log(addOne(Infinity));
 
 // problem 5
 function isEven(x) {
-    if(x % 2 === 0) {
-        return true
-    } else {
-        return false
-    }
+    return parseInt(x) % 2 === 0;
 }
 
 console.log(isEven(1));
@@ -73,9 +65,9 @@ console.log(isEven(1));
 // problem 6
 function isIdentical(x,y) {
     if(x === y) {
-        return `is identical`
+        return true
     } else {
-        return `is NOT identical`
+        return false
     }
 }
 
@@ -90,7 +82,7 @@ function isEqual(x,y) {
     }
 }
 
-console.log(isEqual(true, 1));
+console.log(isEqual(`1`, 1));
 
 // problem 8
 function or(x,y) {
@@ -119,22 +111,22 @@ function and(x,y) {
 console.log(and(`hello`, `world`));
 
 // problem 10
-function concat(x,y) {
-    if((typeof(x)) === (null || Boolean | NaN || undefined)) {
-        return `is null.`
+// function concat(x,y) {
+//     if((typeof(x)) === (null || Boolean | NaN || undefined)) {
+//         return `is null.`
+//     } else {
+//         return x + y
+//     }
+// }
+
+// console.log(concat(`connect`, null));
+
+function testAgain(x) {
+    if(typeof x === null) {
+        return `null`
     } else {
-        return x + y
+        return `else`
     }
 }
 
-console.log(concat(`connect`, null));
-
-// function testAgain(x) {
-//     if(typeof(x) === null) {
-//         return `null`
-//     } else {
-//         return `else`
-//     }
-// }
-//
-// console.log(typeof(true));
+console.log(typeof(`sdkjgfh`));
