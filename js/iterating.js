@@ -1,11 +1,11 @@
 `use strict`;
 
 let fruits = [`apple`,`banana`,`tomato`,`grape`];
-console.log(fruits);
-console.log(fruits[2]);
-console.log(fruits.length);
+// console.log(fruits);
+// console.log(fruits[2]);
+// console.log(fruits.length);
 // fruits[2] = 10;
-console.log(fruits);
+// console.log(fruits);
 
 for (let i = 0; i < fruits.length; i++) {
     console.log(fruits[i]);
@@ -17,12 +17,44 @@ for (let i = 0; i < fruits.length; i++) {
     console.log(fruits[i])
 }
 
+function arrayStringify(arr) {
+    let result = "";
+    for (let i = 0; i < arr.length; i++) {
+        if(i > 0) {
+            result += fruits[i] + `, `;
+        }
+        result += fruits[i];
+    }
+    return result;
+}
+
+console.log(arrayStringify(fruits));
+
+//test
+
 // i | fruits.length | i < fruits.length | fruits[i]
 // 0 | 4             | true              |apple
 // 1 | 4             | true              |banana
 // 2 | 4             | true              |tomato
 // 3 | 4             | true              |grape
 // 4 | 4             | false             |
+
+function (printFruit(fruit, index) {
+    console.log(`${index + 1}: ${fruit}`);
+})
+
+
+console.log(`---------`);
+fruits.forEach(function (fruit) {
+    console.log(fruit);
+});
+
+//no index needed? for off is good
+
+
+
+
+
 
 (function(){
     "use strict";
