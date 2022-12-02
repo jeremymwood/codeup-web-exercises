@@ -1,8 +1,8 @@
 (function(){
     "use strict";
 
-    var planetsString = "Mercury|Venus|Earth|Mars|Jupiter|Saturn|Uranus|Neptune";
-    var planetsArray;
+    let planetsString = "Mercury|Venus|Earth|Mars|Jupiter|Saturn|Uranus|Neptune";
+    console.log(`String: ${planetsString}`);
 
     /**
      * TODO:
@@ -11,7 +11,8 @@
      * console.log planetsArray to check your work
      */
 
-    // console.log(planetsArray);
+    let planetsArray = planetsString.split(`|`);
+    console.log(`Array: ${planetsArray}`);
 
     /**
      * TODO:
@@ -24,4 +25,33 @@
      * string, and <li> tags around each planet.
      */
 
+    let unorderedPlanets = planetsArray.join(`<br>\n`);
+    console.log(unorderedPlanets);
+
+    function unorderedPlanetsFunc(arr) {
+        // console.log(arr.join(`<br>\n`));
+        // console.log(planetsArray);
+        // let openCLoseTags = `<ul>\n`;
+        // console.log(openCloseTags);
+        for (let i = 0; i < planetsArray.length; i++) {
+            console.log(`  <li>${planetsArray[i]}</li>`)
+        }
+
+    }
+    unorderedPlanetsFunc(planetsArray);
+
+
+    for (let i = 0; i < planetsArray.length; i++) {
+        console.log(`  <li>${planetsArray[i]}</li>`)
+    }
+
+
+    console.log(planetsArray.join(`<li>\n`));
+
+    // for (let i = 0; i < planetsArray.length; i++) {
+    //     console.log(`  <li>${planetsArray[i]}</li>`)
+    // }
+
+
 })();
+
