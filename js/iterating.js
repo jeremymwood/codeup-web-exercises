@@ -99,9 +99,25 @@ for (let i = 0; i < names.length; i++) {
 //     // ...
 // })
 
-names.forEach( function(name) {
-    console.log(`${names.indexOf(name) + 1}: ${name} is in this array.`)
+//doc rob
+names.forEach(function (name, index) {
+    console.log(`${index + 1}: ${name}`);
 })
+
+//my solution
+// names.forEach( function(name) {
+//     console.log(`${names.indexOf(name) + 1}: ${name} is in this array.`)
+// })
+
+
+//doc rob
+// function first(arr) {
+//     return arr[0];
+// }
+// console.log(first(arr));
+
+// first(names);
+
 
 function firstName() {
     let position = 1;
@@ -113,14 +129,12 @@ function secondName() {
     let position = 2;
     console.log(names[position -1]);
 }
-
 secondName();
 
 function lastName() {
     let position = names.length;
     console.log(names[position -1]);
 }
-
 lastName();
 
 /**

@@ -1,6 +1,22 @@
-// Break and Continue
-// Create a file named break_and_continue.js in the js directory.
-//     Prompt the user for an odd number between 1 and 50. Use a loop and a break statement to continue prompting the user if they enter invalid input.
+let userNumber = prompt(`Pick a number between 1 and 49.`);
+// console.log(userNumber);
+
+for (let i = 1; i < 50; i++) {
+    let skipNumber = 27;
+    console.log('Loop counter is: ' + i);
+    if(i === skipNumber){
+        console.log('skip number ' + skipNumber + `.`);
+    }
+    if(i === skipNumber +1){
+
+    }
+    continue;
+    console.log('We have reached the stopping point: break!');
+    break;
+    console.log('You will never see this line.');
+}
+
+//Use a loop and a break statement to continue prompting the user if they enter invalid input.
 //     Use a loop and the continue statement to output all the odd numbers between 1 and 50, except for the number the user entered.
 //     Your output should look like this:
 
@@ -59,18 +75,18 @@
 //     console.log(`this is an odd number.`);
 // }
 
-console.log(`\n`);
-
-let i = 2;
-while (i < 65536) {
-    console.log(i *= 2);
-}
-
-console.log(`\n`);
-
-const maxInventory = 100;
-const minInventory = 50;
-let inventory = Math.floor(Math.random() * (maxInventory - minInventory + 1) + minInventory);
+// console.log(`\n`);
+//
+// let i = 2;
+// while (i < 65536) {
+//     console.log(i *= 2);
+// }
+//
+// console.log(`\n`);
+//
+// const maxInventory = 100;
+// const minInventory = 50;
+// let inventory = Math.floor(Math.random() * (maxInventory - minInventory + 1) + minInventory);
 
 // p = document.createElement(`p`);
 // wl = document.createElement(`ul`);
