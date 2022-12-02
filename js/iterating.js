@@ -103,6 +103,26 @@ names.forEach( function(name) {
     console.log(`${names.indexOf(name) + 1}: ${name} is in this array.`)
 })
 
+function firstName() {
+    let position = 1;
+    console.log(names[position -1]);
+}
+firstName();
+
+function secondName() {
+    let position = 2;
+    console.log(names[position -1]);
+}
+
+secondName();
+
+function lastName() {
+    let position = names.length;
+    console.log(names[position -1]);
+}
+
+lastName();
+
 /**
  * TODO:
  * Create the following three functions, each will accept an array and
