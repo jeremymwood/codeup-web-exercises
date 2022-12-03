@@ -25,33 +25,16 @@
      * string, and <li> tags around each planet.
      */
 
-    let unorderedPlanets = planetsArray.join(`<br>\n`);
-    console.log(unorderedPlanets);
+    let breakPlanets = planetsArray.join(`<br>\n`);
+    console.log(breakPlanets);
 
-    function unorderedPlanetsFunc(arr) {
-        // console.log(arr.join(`<br>\n`));
-        // console.log(planetsArray);
-        // let openCLoseTags = `<ul>\n`;
-        // console.log(openCloseTags);
-        for (let i = 0; i < planetsArray.length; i++) {
-            console.log(`  <li>${planetsArray[i]}</li>`)
-        }
-
-    }
-    unorderedPlanetsFunc(planetsArray);
-
-
+    let listPlanets = new Array();
     for (let i = 0; i < planetsArray.length; i++) {
-        console.log(`  <li>${planetsArray[i]}</li>`)
+        listPlanets[i] = `  <li>${planetsArray[i]}</li>`;
     }
-
-
-    console.log(planetsArray.join(`<li>\n`));
-
-    // for (let i = 0; i < planetsArray.length; i++) {
-    //     console.log(`  <li>${planetsArray[i]}</li>`)
-    // }
+    let noReallyFinalPlanets = listPlanets.join(`\n`);
+    breakPlanets = `<ul>\n${noReallyFinalPlanets}\n</ul>`;
+    console.log(breakPlanets)
 
 
 })();
-
