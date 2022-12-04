@@ -1,19 +1,19 @@
-let userNumber = prompt(`Pick a number between 1 and 49.`);
-// console.log(userNumber);
+let userNumber = prompt(`Pick an odd number between 1 and 49.`);
+let skipNumber = prompt(`Pick a number to skip.`);
 
-for (let i = 1; i < 50; i++) {
-    let skipNumber = 27;
+for (let i = 1; i < 50; i+=2) {
+    // if(userNumber % 2 === 0){
+    //     let userNumber = prompt(`That was not odd.  Pick an odd number between 1 and 49.`);
+    // } else {continue}
+    if(i === parseInt(userNumber)){
+        console.log(`Last number is: ${userNumber}`);
+        break;
+    }
+    if(i === parseInt(skipNumber)){
+        console.log(`Skip number is: ${skipNumber}`);
+        continue;
+    }
     console.log('Loop counter is: ' + i);
-    if(i === skipNumber){
-        console.log('skip number ' + skipNumber + `.`);
-    }
-    if(i === skipNumber +1){
-
-    }
-    continue;
-    console.log('We have reached the stopping point: break!');
-    break;
-    console.log('You will never see this line.');
 }
 
 //Use a loop and a break statement to continue prompting the user if they enter invalid input.
