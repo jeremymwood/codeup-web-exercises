@@ -1,20 +1,22 @@
-let userNumber = prompt(`Pick an odd number between 1 and 49.`);
-let skipNumber = prompt(`Pick a number to skip.`);
 
-for (let i = 1; i < 50; i+=2) {
-    // if(userNumber % 2 === 0){
-    //     let userNumber = prompt(`That was not odd.  Pick an odd number between 1 and 49.`);
-    // } else {continue}
-    if(i === parseInt(userNumber)){
-        console.log(`Last number is: ${userNumber}`);
-        break;
+function loopCounter(userNumber,skipNumber) {
+    //prompt or function call inputs below
+    // let userNumber = prompt(`Pick an odd number between 1 and 49.`);
+    // let skipNumber = prompt(`Pick a number to skip.`);
+    for (let i = 1; i < 50; i+=2) {
+        if(i === parseInt(userNumber)){
+            console.log(`Last number is: ${userNumber}`);
+            break;
+        }
+        if(i === parseInt(skipNumber)){
+            console.log(`Skip number is: ${skipNumber}`);
+            continue;
+        }
+        console.log('Loop counter is: ' + i);
     }
-    if(i === parseInt(skipNumber)){
-        console.log(`Skip number is: ${skipNumber}`);
-        continue;
-    }
-    console.log('Loop counter is: ' + i);
 }
+
+loopCounter(45,13);
 
 //Use a loop and a break statement to continue prompting the user if they enter invalid input.
 //     Use a loop and the continue statement to output all the odd numbers between 1 and 50, except for the number the user entered.
