@@ -2,7 +2,7 @@
     "use strict";
 
     let planetsString = "Mercury|Venus|Earth|Mars|Jupiter|Saturn|Uranus|Neptune";
-    console.log(`String: ${planetsString}`);
+    console.log(`planetsString:\n\n${planetsString}`);
 
     /**
      * TODO:
@@ -11,8 +11,8 @@
      * console.log planetsArray to check your work
      */
 
-    let planetsArray = planetsString.split(`|`);
-    console.log(`Array: ${planetsArray}`);
+    // let planetsArray = planetsString.split(`|`);
+    // console.log(`planetsArray:\n\n${planetsArray}`);
 
     /**
      * TODO:
@@ -27,16 +27,27 @@
 
     //create functions for both cases
 
-    let breakPlanets = planetsArray.join(`<br>\n`);
-    console.log(breakPlanets);
+    // let breakPlanets = planetsArray.join(`<br>\n`);
+    // console.log(`breakPlanets:\n\n${breakPlanets}`);
+    //
+    // console.log(`******************`);
 
-    let listPlanets = new Array();
+    // let listPlanets = new Array();
+    // for (let i = 0; i < planetsArray.length; i++) {
+    //     listPlanets[i] = `  <li>${planetsArray[i]}</li>`;
+    // }
+    // let noReallyFinalPlanets = listPlanets.join(`\n`);
+    // breakPlanets = `<ul>\n${noReallyFinalPlanets}\n</ul>`;
+    // console.log(breakPlanets)
+
+    let planetsArray = planetsString.split(`|`);
+    let listPlanetsArr = new Array();
+    // console.log(`listPlanets array:\n${listPlanets}`);
     for (let i = 0; i < planetsArray.length; i++) {
-        listPlanets[i] = `  <li>${planetsArray[i]}</li>`;
+        listPlanetsArr[i] = `  <li>${planetsArray[i]}</li>`;
     }
-    let noReallyFinalPlanets = listPlanets.join(`\n`);
-    breakPlanets = `<ul>\n${noReallyFinalPlanets}\n</ul>`;
-    console.log(breakPlanets)
+    let ulPlanets = `<ul>\n${listPlanetsArr.join(`\n`)}\n</ul>`;
+    console.log(`ulPlanets:\n\n${ulPlanets}`)
 
 
 })();
