@@ -1,69 +1,47 @@
 (function(){
     "use strict";
 
-    let planetsString = "Mercury|Venus|Earth|Mars|Jupiter|Saturn|Uranus|Neptune";
-    console.log(`planetsString:\n\n${planetsString}`);
-    let galaxiesString = "Andromeda|Cygnus A|Milky Way|Corvus|Circinus";
-    console.log(`galaxiesString:\n\n${galaxiesString}`);
+    var planets = [
+        'Mercury',
+        'Venus',
+        'Earth',
+        'Mars',
+        'Jupiter',
+        'Saturn',
+        'Uranus',
+        'Neptune'
+    ];
 
     /**
      * TODO:
-     * Convert planetsString to an array, and save it in a variable named
-     * planetsArray.
-     * console.log planetsArray to check your work
+     * Read each console log below, and write some javascript code to perform
+     * the step that it describes
      */
 
-    // let planetsArray = planetsString.split(`|`);
-    // console.log(`planetsArray:\n\n${planetsArray}`);
+    console.log('Adding "The Sun" to the beginning of the planets array.');
+    planets.unshift(`The Sun`);
+    console.log(planets);
 
-    /**
-     * TODO:
-     * Create a string with <br> tags between each planet. console.log() your
-     * results. Why might this be useful?
-     *
-     * BONUS:
-     * Create another string that would display your planets in an undordered
-     * list. You will need an opening AND closing <ul> tags around the entire
-     * string, and <li> tags around each planet.
-     */
+    console.log('Adding "Pluto" to the end of the planets array.');
+    planets.push(`Pluto`);
+    console.log(planets);
 
-    //create functions for both cases
+    console.log('Removing "The Sun" from the beginning of the planets array.');
+    planets.shift();
+    console.log(planets);
 
-    // let breakPlanets = planetsArray.join(`<br>\n`);
-    // console.log(`breakPlanets:\n\n${breakPlanets}`);
-    //
-    // console.log(`******************`);
+    console.log('Removing "Pluto" from the end of the planets array.');
+    planets.pop();
+    console.log(planets);
 
-    // let listPlanets = new Array();
-    // for (let i = 0; i < planetsArray.length; i++) {
-    //     listPlanets[i] = `  <li>${planetsArray[i]}</li>`;
-    // }
-    // let noReallyFinalPlanets = listPlanets.join(`\n`);
-    // breakPlanets = `<ul>\n${noReallyFinalPlanets}\n</ul>`;
-    // console.log(breakPlanets)
+    console.log('Finding and logging the index of "Earth" in the planets array.');
+    console.log(planets.indexOf(`Earth`));
 
-    // let planetsArray = planetsString.split(`|`);
-    // let listPlanetsArr = new Array();
-    // // console.log(`listPlanets array:\n${listPlanets}`);
-    // for (let i = 0; i < planetsArray.length; i++) {
-    //     listPlanetsArr[i] = `  <li>${planetsArray[i]}</li>`;
-    // }
-    // let ulPlanets = `<ul>\n${listPlanetsArr.join(`\n`)}\n</ul>`;
-    // console.log(`ulPlanets:\n\n${ulPlanets}`)
+    console.log("Reversing the order of the planets array.");
+    planets.reverse();
+    console.log(planets);
 
-
-    function ulGenerator(strings,separator){
-        let arr = strings.split(separator);
-        let listArr = new Array();
-        for (let i = 0; i < arr.length; i++) {
-            listArr[i] = `  <li>${arr[i]}</li>`;
-        }
-        let ulBlock = `<ul>\n${listArr.join(`\n`)}\n</ul>`;
-        console.log(`${ulBlock}`);
-        // console.log(ulBlock.name)
-    }
-    ulGenerator(planetsString,`|`);
-    ulGenerator(galaxiesString,`|`);
-
-
+    console.log("Sorting the planets array.");
+    planets.sort();
+    console.log(planets);
 })();
