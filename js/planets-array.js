@@ -25,6 +25,8 @@
      * string, and <li> tags around each planet.
      */
 
+    //create functions for both cases
+
     let breakPlanets = planetsArray.join(`<br>\n`);
     console.log(breakPlanets);
 
