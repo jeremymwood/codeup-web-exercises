@@ -48,11 +48,25 @@
      * and console.log the relevant messages for each person
      */
 
-    // var shoppers = [
-    //     {name: 'Cameron', amount: 180},
-    //     {name: 'Ryan', amount: 250},
-    //     {name: 'George', amount: 320}
-    // ];
+
+    let discountPercentage = 12;
+    let discountMin = 200;
+    let shoppers = [
+        {name: 'Cameron', amount: 180},
+        {name: 'Ryan', amount: 250},
+        {name: 'George', amount: 320}
+    ];
+
+    function discount(shoppers){
+        if (shoppers.amount >= discountMin){
+            console.log(`${shoppers.name}'s bill is ${shoppers.amount}.\n${shoppers.name}'s discount is ${discountPercentage}%.\n${shoppers.name}'s discounted bill is ${shoppers.amount-((discountPercentage/100) * shoppers.amount)}`);
+        }  else {
+            console.log(`${shoppers.name}'s bill is ${shoppers.amount}.\n${shoppers.name} has NO discount.\n${shoppers.name}'s bill remains ${shoppers.amount}`);
+        }
+
+    }
+
+    shoppers.forEach(discount);
 
     /** TODO:
      * Create an array of objects that represent books and store it in a
