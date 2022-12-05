@@ -1,4 +1,4 @@
-(function(){
+(function () {
     "use strict";
 
     let planetsString = "Mercury|Venus|Earth|Mars|Jupiter|Saturn|Uranus|Neptune";
@@ -13,8 +13,8 @@
      * console.log planetsArray to check your work
      */
 
-    // let planetsArray = planetsString.split(`|`);
-    // console.log(`planetsArray:\n\n${planetsArray}`);
+    let planetsArray = planetsString.split(`|`);
+    console.log(`planetsArray:\n\n${planetsArray}`);
 
     /**
      * TODO:
@@ -27,32 +27,14 @@
      * string, and <li> tags around each planet.
      */
 
-    //create functions for both cases
+        //create functions for both cases
 
-    // let breakPlanets = planetsArray.join(`<br>\n`);
-    // console.log(`breakPlanets:\n\n${breakPlanets}`);
-    //
-    // console.log(`******************`);
+    let breakPlanets = planetsArray.join(`<br>\n`);
+    console.log(`breakPlanets:\n\n${breakPlanets}`);
 
-    // let listPlanets = new Array();
-    // for (let i = 0; i < planetsArray.length; i++) {
-    //     listPlanets[i] = `  <li>${planetsArray[i]}</li>`;
-    // }
-    // let noReallyFinalPlanets = listPlanets.join(`\n`);
-    // breakPlanets = `<ul>\n${noReallyFinalPlanets}\n</ul>`;
-    // console.log(breakPlanets)
+    console.log(`******************`);
 
-    // let planetsArray = planetsString.split(`|`);
-    // let listPlanetsArr = new Array();
-    // // console.log(`listPlanets array:\n${listPlanets}`);
-    // for (let i = 0; i < planetsArray.length; i++) {
-    //     listPlanetsArr[i] = `  <li>${planetsArray[i]}</li>`;
-    // }
-    // let ulPlanets = `<ul>\n${listPlanetsArr.join(`\n`)}\n</ul>`;
-    // console.log(`ulPlanets:\n\n${ulPlanets}`)
-
-
-    function ulGenerator(strings,separator){
+    function ulGenerator(strings, separator) {
         let arr = strings.split(separator);
         let listArr = new Array();
         for (let i = 0; i < arr.length; i++) {
@@ -62,8 +44,7 @@
         console.log(`${ulBlock}`);
         // console.log(ulBlock.name)
     }
-    ulGenerator(planetsString,`|`);
-    ulGenerator(galaxiesString,`|`);
 
-
+    ulGenerator(planetsString, `|`);
+    ulGenerator(galaxiesString, `|`);
 })();

@@ -1,6 +1,3 @@
-
-
-
 (function() {
     "use strict";
 
@@ -15,6 +12,13 @@
      *  > console.log(person.lastName) // "Sanchez"
      */
 
+    const person = {
+        firstName: `Jeremy` ,
+        lastName: `Wood`
+    };
+
+    console.log(person.firstName);
+    console.log(person.lastName);
     /**
      * TODO:
      * Add a sayHello method to the person object that returns a greeting using
@@ -24,6 +28,11 @@
      * Example
      * > console.log(person.sayHello()) // "Hello from Rick Sanchez!"
      */
+
+    person.sayHello = `Hello from ${person.firstName} ${person.lastName}.`;
+
+    // person.sayHello();
+    console.log(person.sayHello);
 
     /** TODO:
      * HEB has an offer for the shoppers that buy products amounting to
