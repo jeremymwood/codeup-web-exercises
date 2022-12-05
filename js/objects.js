@@ -81,6 +81,20 @@
      * > console.log(books[0].author.lastName) // "Adams"
      */
 
+    let books = [
+        {title:`The Catcher in the Rye`, author:{firstName: `J.D.`, lastName:`Salinger`}},
+        {title: `The Gulag Archipelago`, author:{firstName: `Aleksandr`,lastName: `Solzhenitsyn`}},
+        {title: `The Incal`, author: {firstName: `Alejandro`, lastName: `Jodorowsk`}},
+        {title: `The Book of the Law`, author: {firstName: `Aleister`, lastName: `Crowley`}}, {title: `Invisible Cities`, author: {firstName: `Italo`, lastName: `Calvino`}}
+    ]
+
+    function bookList(books){
+        console.log(`"${books.title}"\n${books.author.firstName} ${books.author.lastName}\n`)
+    }
+
+    // console.log(books[0]);
+    books.forEach(bookList);
+
     /**
      * TODO:
      * Loop through the books array and output the following information about
