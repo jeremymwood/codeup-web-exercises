@@ -118,6 +118,13 @@
      *      ...
      */
 
+    console.log(`\n`)
+
+    function detailedBookList(books){
+        console.log(`Book #${books.bookIndex}:\nTitle: "${books.title}"\nAuthor: ${books.author.firstName} ${books.author.lastName}\n`);
+    }
+    books.forEach(detailedBookList);
+
     /**
      * Bonus:
      * - Create a function named `createBook` that accepts a title and author
