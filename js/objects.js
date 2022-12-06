@@ -91,10 +91,6 @@
     function bookList(books){
         console.log(`"${books.title}"\n${books.author.firstName} ${books.author.lastName}\n`)
     }
-
-    //git email test
-
-    // console.log(books[0]);
     books.forEach(bookList);
 
     /**
