@@ -89,7 +89,7 @@
     ]
 
     function bookList(books){
-        console.log(`"${books.title}"\n${books.author.firstName} ${books.author.lastName}\n`)
+        console.log(`${books.author.firstName} ${books.author.lastName}\n${books.title}`);
     }
     books.forEach(bookList);
 
@@ -120,10 +120,18 @@
 
     console.log(`\n`)
 
-    function detailedBookList(books){
-        console.log(`Book #${books.bookIndex}:\nTitle: "${books.title}"\nAuthor: ${books.author.firstName} ${books.author.lastName}\n`);
+
+    // function bookList(books){
+    //     console.log(`Book #${books[{}]}:\n${books.author.firstName} ${books.author.lastName}\n${books.title}`);
+    // }
+    // books.forEach(bookList);
+
+    for(const book of books){
+        console.log(`Book # ${books.indexOf(book) + 1}
+Title: ${book.title}
+Author: ${book.author.firstName} ${book.author.lastName}`);
     }
-    books.forEach(detailedBookList);
+
 
     /**
      * Bonus:
