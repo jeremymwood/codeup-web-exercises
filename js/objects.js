@@ -13,7 +13,7 @@
      */
 
     const person = {
-        firstName: `Jeremy` ,
+        firstName: `Jeremy`,
         lastName: `Wood`
     };
 
@@ -165,15 +165,15 @@ Author: ${this.author.firstName} ${this.author.lastName}\`);
     books.push(createBook(`Dune`, `Frank`, `Herbert`));
     console.log(books);
 
-    function showBookInfo2(book){
+    // function showBookInfo2(book){
+    //
+    // }
 
-    }
-
-    let index = 1;
-    for (const book of books){
-        book.showBookInfo2(books);
-        index++;
-    }
+    // let index = 1;
+    // for (const book of books){
+    //     book.showBookInfo2(books);
+    //     index++;
+    // }
 
 
 })();
