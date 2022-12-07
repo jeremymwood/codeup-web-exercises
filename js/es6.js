@@ -1,3 +1,5 @@
+//generate html unordered list
+
 // Complete the TODO items below
 const users = [
     {
@@ -42,57 +44,48 @@ users.push({
     languages
 });
 
-// console.log(users);
+console.log(users);
 
 // TODO: replace `var` with `let` in the following variable declarations
 let emails = [];
 let names = [];
 
 // TODO: rewrite the following using arrow functions
-// const sayHello = function (name) {
-//     return 'Hello, ' + name + '!';
-// };
-// // same as
-// const sayHello = (name) => 'Hello, ' + name + '!';
-
-// const sayHello = (name) => 'Hello, ' + name + '!';
-
-// const sayHello = (name) => {
-//     const greeting = 'Hello,  ' + name + '!';
-//     return greeting;
-// };
-// users.forEach(function(user) {
-//     return emails.push(user.email);
-// });
 users.forEach((user) => emails.push(user.email)
 );
-users.forEach((user) => names.push(user.name));
+//one parameter, no parens needed for arrow functions
+users.forEach(user => names.push(user.name));
 
+console.log(emails);
+console.log(names);
 // TODO: replace `var` with `let` in the following declaration
 let developers = [];
-// function users.forEach({name, email, languages}) {
-users.forEach(function(user) {
+users.forEach(function({name, email, languages}) {
     // TODO: rewrite the code below to use object destructuring assignment
     //       note that you can also use destructuring assignment in the function
     //       parameter definition
     // const user = {};
-    const {name, email, languages} = user;
+
 
     // const name = user.name;
     // const email = user.email;
     // const languages = user.languages;
 
+    //can move this into the function parameters
+    // const {name, email, languages} = user;
     // TODO: rewrite the assignment below to use template strings
-    developers.push(`${name}'s email is ${email}.\n  ${name} knows ${languages.join(', ')}`);
+    developers.push(`${name}'s email is ${email}.\n ${name} knows ${languages.join(', ')}`);
 });
 
+console.log(developers);
+
 // TODO: Use `let` for the following variable
-let list = '<ul>';
+let list = `<ul>`;
 
 // TODO: rewrite the following loop to use a for..of loop
 
-for (let developer of developers) {
-    list += '<li>' + developer + '</li>';
+for (const developer of developers) {
+    list += `<li>${developer}</li>`;
 }
 
 // developers.forEach(function (developer) {
@@ -100,4 +93,5 @@ for (let developer of developers) {
 //     // TODO: rewrite the assignment below to use template strings
 //     list += '<li>' + developer + '</li>';
 // });
-list += '</ul>';
+list += `</ul>`;
+console.log(list);
