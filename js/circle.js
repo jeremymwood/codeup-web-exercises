@@ -35,7 +35,7 @@
     console.log("=======================================================");
     // TODO: Change the radius of the circle to 5.
     //radius 3 above, 5 below
-    circle.radius = 5
+    circle.radius = 5.2
 
     // log info about the circle
     console.log("Raw circle information");
