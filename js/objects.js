@@ -127,7 +127,8 @@
     // books.forEach(bookList);
 
     for(const book of books){
-        console.log(`Book # ${books.indexOf(book) + 1}
+        console.log(`
+Book # ${books.indexOf(book) + 1}
 Title: ${book.title}
 Author: ${book.author.firstName} ${book.author.lastName}`);
     }
@@ -143,5 +144,36 @@ Author: ${book.author.firstName} ${book.author.lastName}`);
      *   outputs the information described above. Refactor your loop to use your
      *   `showBookInfo` function.
      */
+
+    function createBook(title, fName, lName){
+        let book = {
+            title: title,
+            author: {
+                firstName: fName,
+                lastName: lName
+            }
+        };
+        book.showBookInfo = function (){
+            console.log(`
+Book # ${index + 1}
+Title: ${this.title}
+Author: ${this.author.firstName} ${this.author.lastName}\`);
+    }`)
+        };
+        return book
+    }
+    books.push(createBook(`Dune`, `Frank`, `Herbert`));
+    console.log(books);
+
+    function showBookInfo2(book){
+
+    }
+
+    let index = 1;
+    for (const book of books){
+        book.showBookInfo2(books);
+        index++;
+    }
+
 
 })();
