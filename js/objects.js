@@ -17,8 +17,8 @@
         lastName: `Wood`
     };
 
-    console.log(person.firstName);
-    console.log(person.lastName);
+    // console.log(person.firstName);
+    // console.log(person.lastName);
     /**
      * TODO:
      * Add a sayHello method to the person object that returns a greeting using
@@ -32,7 +32,7 @@
     person.sayHello = `Hello from ${person.firstName} ${person.lastName}.`;
 
     // person.sayHello();
-    console.log(person.sayHello);
+    // console.log(person.sayHello);
 
     /** TODO:
      * HEB has an offer for the shoppers that buy products amounting to
@@ -66,7 +66,7 @@
 
     }
 
-    shoppers.forEach(discount);
+    // shoppers.forEach(discount);
 
     /** TODO:
      * Create an array of objects that represent books and store it in a
@@ -91,7 +91,14 @@
     function bookList(books){
         console.log(`${books.author.firstName} ${books.author.lastName}\n${books.title}`);
     }
-    books.forEach(bookList);
+
+    for(const book of books){
+        console.log(`
+Book # ${books.indexOf(book) + 1}
+Title: ${book.title}
+Author: ${book.author.firstName} ${book.author.lastName}`);
+    }
+    // books.forEach(bookList);
 
     /**
      * TODO:
@@ -118,7 +125,7 @@
      *      ...
      */
 
-    console.log(`\n`)
+    // console.log(`\n`)
 
 
     // function bookList(books){

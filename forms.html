@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register With Us</title>
+</head>
+<body>
+    <h2>Register With Us</h2>
+    <form method="POST" action="https://formsubmit.co/jeremy.mason.wood@gmail.com">
+
+        <label for="email">Email</label>
+        <input id="email" name="email" type="text" placeholder="email">
+        <br><br>
+
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" placeholder="password">
+        <br><br>
+
+        <textarea name="bio" id="bio" cols="40" rows="10" placeholder="Tell us about yourself..."></textarea>
+        <br><br>
+
+        <h2>How did you hear about us?</h2>
+
+        <input type="radio" name="" value="billboard">billboard<br>
+        <input type="radio" name="how-did-you-hear-from-us-question" value="radio advertisement">radio advertisement<br>
+        <input type="radio" name="how-did-you-hear-from-us-question" value="internet advertisement">internet advertisement<br>
+        <input type="radio" name="how-did-you-hear-from-us-question" value="other">other<br>
+
+        <h2>What browser do you use?</h2>
+
+        <select name="browser_preference">
+            <option value="Chrome">Chrome</option>
+            <option value="Firefox">Firefox</option>
+            <option value="Internet Explorer">Internet Explorer</option>
+            <option value="Safari">Safari</option>
+        </select>
+        <br>
+        <br>
+        <input type="submit">
+    </form>
+</body>
+</html>
+
+<!--POST-->
+
+<!--{"method":"POST","query":{},"body":{"email":"sdg","password":"dsfgdsf","bio":"dsfgsdfg","how-did-you-hear-from-us-question":"billboard","browser_preference":"Chrome"}}-->
+
+<!--https://request-inspector.glitch.me/-->
+
+
+
+<!--GET-->
+
+<!--{"method":"GET","query":{"email":"DSFH","password":"SDFGH","bio":"SFDGH","how-did-you-hear-from-us-question":"radio advertisement","browser_preference":"Firefox"},"body":{}}-->
+
+<!--https://request-inspector.glitch.me/?email=DSFH&password=SDFGH&bio=SFDGH&how-did-you-hear-from-us-question=radio+advertisement&browser_preference=Firefox-->
