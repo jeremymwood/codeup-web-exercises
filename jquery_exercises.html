@@ -16,7 +16,8 @@
     <h1 class="h1-class" id="h1-id">jQuery Exercises</h1>
 </header>
 <nav>
-    <p class="p-class" id="p-id">nav bar</p>
+    <p class="p-class" id="p-id-1">paragraph 1</p>
+    <p class="p-class" id="p-id-2">paragraph 2</p>
     <ul class="ul-class" id="ul-id">
         <li class="li-class" id="li-id-1">1</li>
         <li class="li-class" id="li-id-2">2</li>
@@ -26,8 +27,8 @@
 <section>
     < section >
     <header>< header ></header>
-    <div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid facere laborum modi odio quidem ratione!</p>
+    <div class="div-class" id="div-id">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid facere laborum modi odio quidem ratione!
     </div>
     <article>< article ></article>
     <footer>< footer ></footer>
@@ -67,6 +68,53 @@
     $('p').css("background-color", "cornflowerblue");
     $("li").addClass("bg-danger");
     $("li").addClass("fw-bolder");
+
+    //id selectors
+    //3
+    // alert($('#h1-id').html());
+    //
+    // //4
+    // alert($('#div-id').html());
+
+    //5 and 6
+    //second id is ignored
+    $('#p-id-1').css("background-color", "dodgerblue");
+    $('#p-id-2').css("background-color", "aquamarine");
+
+    //class selectors
+    //1
+    $('.h1-class').removeClass();
+    $('.p-class').removeClass();
+    $('.ul-class').removeClass();
+    $('.li-class').removeClass();
+    $('.div-class').removeClass();
+
+    //2
+    $("h1").addClass("codeup");
+    $("p").addClass("codeup");
+    $("ul").addClass("codeup");
+
+    //3
+    $(".codeup").css("border", "1px red solid")
+
+    //4
+    $("h1").removeClass("codeup");
+
+    //5
+    //class applied after styling, changes not updated
+    $("li").addClass("codeup");
+    // $("li").css("border", "1px red solid")
+
+    //element selectors
+    //1
+
+    //2
+
+    //3
+
+    //4
+
+
 </script>
 </body>
 </html>
