@@ -1,16 +1,5 @@
-*
-{
-    color: #fff;
-    font-size: 28px;
-    font-weight: 300;
-    box-sizing: border-box;
+* {
     font-family: 'Metrophobic', Arial, serif; font-weight: 400;
-}
-
-body
-{
-    background-color: #323232;
-    padding: 50px;
 }
 
 header,
@@ -19,7 +8,7 @@ section,
 aside,
 footer
 {
-    text-align: center;
+    /*text-align: center;*/
     background-color: #666666;
     border-radius: 5px;
     padding: 50px;
