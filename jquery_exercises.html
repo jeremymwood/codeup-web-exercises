@@ -13,19 +13,22 @@
 </head>
 <body class="bg-black p-3 text-white text-center">
 <header>
-    <h1 id="h1-id">jQuery Exercises</h1>
+    <h1 class="h1-class" id="h1-id">jQuery Exercises</h1>
 </header>
 <nav>
-    <p>nav bar</p>
-    <ul>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
+    <p class="p-class" id="p-id">nav bar</p>
+    <ul class="ul-class" id="ul-id">
+        <li class="li-class" id="li-id-1">1</li>
+        <li class="li-class" id="li-id-2">2</li>
+        <li class="li-class" id="li-id-3">3</li>
     </ul>
 </nav>
 <section>
     < section >
     <header>< header ></header>
+    <div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid facere laborum modi odio quidem ratione!</p>
+    </div>
     <article>< article ></article>
     <footer>< footer ></footer>
 </section>
@@ -37,7 +40,7 @@
 </footer>
 
 <!--<script src="js/script.js"></script>-->
-<script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous">
+<script src="js/jquery-3.6.3.js">
 </script>
 <script>
     // console.log(jQuery.fn.jquery);
@@ -58,9 +61,12 @@
     //     alert( 'Page loaded - jquery' );
     // });
 
+    $("h1-id").addClass("bg-warning");
+    $("div").addClass("bg-primary");
     $('li').css("margin", "auto");
-    $('li').css("background-color", "red");
-    $('#h1-id').addClass("bg-danger");
+    $('p').css("background-color", "cornflowerblue");
+    $("li").addClass("bg-danger");
+    $("li").addClass("fw-bolder");
 </script>
 </body>
 </html>
