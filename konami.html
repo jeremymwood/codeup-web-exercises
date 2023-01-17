@@ -6,10 +6,12 @@
     <style>
         #message {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             border: 2px red dashed;
             aspect-ratio: 1/1;
+            background-color: white;
         }
         iframe {
             height: 100%;
@@ -74,25 +76,36 @@
 
             function konami(fn) {
                 let input = "";
+                let inputDisplay = "";
                 let pattern = "3838404037393739666513";
                 $(document).keydown(function(e) {
                     input += e.keyCode;
                     // console.log(input);
-                    $("#message").html(input);
+
+                    //trying to add paragraphs to div to display keyed in values
+                    inputDisplay += `<p>${e.key}</p>`;
+
+                    // console.log(`<p>${e.key}</p>`);
+                    // $("#message").innerHTML(`<p>${e.keyCode}</p>`);
+                    console.log(input.indexOf(pattern));
 
                     if (input.indexOf(pattern) !== -1) {
                         fn();
                         input = "";
+                        $("#message").css("background-color", "palegreen");
+                        $("#message").html("You have added 30 lives!");
+                        $("#message").addClass("pass");
+                    }
+                    else {
+                            $("#message").css("background-color", "red");
                     }
                 });
+
             }
 
-            konami(function() {
-                // alert("You have added 30 lives!");
-                $("#message").css("background-color", "red");
-                // $("#message").addClass("fail");
+            // $("#message").innerHTML(inputDisplay);
 
-            });
+            konami(function() {});
 
 
         });
