@@ -2,11 +2,39 @@
 <html>
 <head>
     <title>Konami Code</title>
+    <script src="https://kit.fontawesome.com/4d0b40d330.js" crossorigin="anonymous"></script>
+    <style>
+        #message {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px red dashed;
+            aspect-ratio: 1/1;
+        }
+        iframe {
+            height: 100%;
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
     <h1>Konami Code</h1>
 
-<!--    <p>Please type something into this form:</p>-->
+    <p>What is the password?</p>
+    <div id="message">
+    <!--    arrows-->
+<!--        <i class="fa-solid fa-arrow-up"></i>-->
+<!--        <i class="fa-solid fa-arrow-right"></i>-->
+<!--        <i class="fa-solid fa-arrow-down"></i>-->
+<!--        <i class="fa-solid fa-arrow-left"></i>-->
+
+<!--        <iframe src="https://www.youtube.com/embed/cQ_b4_lw0Gg?&autoplay=1" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>-->
+    </div>
+
+<!--    passcode fail-->
+
+
+
 <!--    <form>-->
 <!--        <input type="text" id="inputId" name="textfield" placeholder="Type Here"/>-->
 <!--    </form>-->
@@ -42,12 +70,16 @@
             // });
 
 
+            // from: https://www.haykranen.nl/2010/05/07/konami/
+
             function konami(fn) {
                 let input = "";
                 let pattern = "3838404037393739666513";
                 $(document).keydown(function(e) {
                     input += e.keyCode;
-                    console.log(input);
+                    // console.log(input);
+                    $("#message").html(input);
+
                     if (input.indexOf(pattern) !== -1) {
                         fn();
                         input = "";
@@ -56,8 +88,13 @@
             }
 
             konami(function() {
-                alert("You did the Konami! W00t!");
+                // alert("You have added 30 lives!");
+                $("#message").css("background-color", "red");
+                // $("#message").addClass("fail");
+
             });
+
+
         });
     </script>
 </body>
