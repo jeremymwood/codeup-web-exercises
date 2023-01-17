@@ -6,10 +6,10 @@
 <body>
     <h1>Konami Code</h1>
 
-    <p>Please type something into this form:</p>
-    <form>
-        <input type="text" id="textfield" name="textfield" placeholder="Type Here"/>
-    </form>
+<!--    <p>Please type something into this form:</p>-->
+<!--    <form>-->
+<!--        <input type="text" id="inputId" name="textfield" placeholder="Type Here"/>-->
+<!--    </form>-->
 
     <script src="js/jquery-3.6.3.js"></script>
     <script>
@@ -32,19 +32,32 @@
             //     console.log(`you pressed the "${event.key}" key`);
             // });
 
-            //on and off functions
-            $("#textfield").on("keypress", function (event) {
-                console.log(`"${event.key}" on`)
+            // on and off functions
+            // $("#inputId").on("keypress", function (event) {
+            //     console.log(`"${event.key}" on`)
+            // });
+
+            // $("#inputId").off("keypress");
+            //     console.log(`"${event.key}" off`)
+            // });
+
+
+            function konami(fn) {
+                let input = "";
+                let pattern = "3838404037393739666513";
+                $(document).keydown(function(e) {
+                    input += e.keyCode;
+                    console.log(input);
+                    if (input.indexOf(pattern) !== -1) {
+                        fn();
+                        input = "";
+                    }
+                });
+            }
+
+            konami(function() {
+                alert("You did the Konami! W00t!");
             });
-
-            $("#textfield").off("keypress");
-
-        // .on('keydown', function() {});
-        //
-        // $('.clickable').off('click');
-        //
-        // $('p').off();
-
         });
     </script>
 </body>
