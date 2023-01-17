@@ -165,6 +165,23 @@
             alert($(this).html());
         })
 
+        // change bg color of only selection
+        //must target all grouped elements
+        $('li').click(function() {
+            $("li").css("background-color", "khaki");
+            $(this).css("background-color", "lightblue");
+        })
+
+
+        $('li').hover(
+            function() {
+                $(this).css("background-color", "lightgrey");
+            },
+            function() {
+                $(this).css("background-color", "khaki");
+            }
+        );
+
     });
 
 </script>
