@@ -87,9 +87,10 @@
 
                     // console.log(`<p>${e.key}</p>`);
                     // $("#message").innerHTML(`<p>${e.keyCode}</p>`);
-                    console.log(input.indexOf(pattern));
+                    // console.log(input.indexOf(pattern));
 
-                    if (input.indexOf(pattern) !== -1) {
+                    //target beginning and ending characters for applying error?
+                    if (input === pattern) {
                         fn();
                         input = "";
                         $("#message").css("background-color", "palegreen");
