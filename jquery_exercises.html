@@ -173,12 +173,32 @@
         })
 
 
+        // $('li').hover(function() {
+        //         $(this).css("background-color", "lightgrey");
+        //     }, function() {
+        //
+        //     if (($(this).css("background-color")) !== "khaki") {
+        //         function () {
+        //             $("li").css("background-color", "lightgrey");
+        //             }
+        //         }
+
+
+        //mouse events exercise
+        $('h1').click(function() {
+            $(this).css("background-color", "lightblue");
+        })
+
+        $('p').dblclick(function() {
+            $(this).css("font-size", "18px");
+        })
+
         $('li').hover(
             function() {
-                $(this).css("background-color", "lightgrey");
+                $(this).css('color', 'red');
             },
             function() {
-                $(this).css("background-color", "khaki");
+                $(this).css('color', 'black');
             }
         );
 
