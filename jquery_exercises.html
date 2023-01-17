@@ -62,6 +62,8 @@
     //     alert( 'Page loaded - jquery' );
     // });
 
+
+
     $("h1-id").addClass("bg-warning");
     $("div").addClass("bg-primary");
     $('li').css("margin", "auto");
@@ -71,9 +73,13 @@
 
     // id selectors
     // 3
-    // alert($('#h1-id').html());
-
-    //4
+    // $(document).ready(function() {
+    //     alert($('#h1-id').html());
+    //
+    // })
+    //     alert($('#h1-id').html());
+    //
+    // //4
     // alert($('#div-id').html());
 
     //5 and 6
@@ -107,13 +113,32 @@
 
     //element selectors
     //1
-
+    $("h1-id").removeClass("bg-warning");
+    $("div").removeClass("bg-primary");
+    $('li').css({"margin": ""});
+    $('p').css({"background-color": ""});
+    $("li").removeClass("bg-danger");
+    $("li").removeClass("fw-bolder");
     //2
     $("li").css("font-size", "20px");
     //3
     $("h1, p, li").css("background-color", "khaki");
     //4
+    // alert($("h1").html());
+    console.log($("h1").html());
 
+    //multiple selectors
+    $("h1, p, li").addClass("select-multiple-again");
+
+    //230117-mouse and key board event
+    $('section').hover(
+        function() {
+            $(this).css('background-color', '#e5e58f');
+        },
+        function() {
+            $(this).css('background-color', '#655d5d');
+        }
+    );
 
 </script>
 </body>
