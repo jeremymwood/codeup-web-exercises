@@ -130,15 +130,42 @@
     //multiple selectors
     $("h1, p, li").addClass("select-multiple-again");
 
-    //230117-mouse and key board event
-    $('section').hover(
-        function() {
-            $(this).css('background-color', '#e5e58f');
-        },
-        function() {
-            $(this).css('background-color', '#655d5d');
-        }
-    );
+    //230117-mouse and keyboard event
+    // $('section').hover(
+    //     function() {
+    //         $(this).css('background-color', '#e5e58f');
+    //     },
+    //     function() {
+    //         $(this).css('background-color', '#655d5d');
+    //     }
+    // );
+
+    //get in the habit of putting dom manipulation inside ready functions
+    $( document ).ready(function() {
+        $('h1').dblclick(function() {
+            alert("double click h1");
+        });
+
+        // can you use both in one function by using mouse up and down with duration?
+        // $('h1').click(function() {
+        //     alert("single click h1");
+        // });
+
+
+        $('h1').hover(
+            function() {
+                $(this).css('color', 'red');
+            },
+            function() {
+                $(this).css('color', 'white');
+            }
+        );
+
+        $('li').dblclick(function() {
+            alert($(this).html());
+        })
+
+    });
 
 </script>
 </body>
