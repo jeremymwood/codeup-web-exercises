@@ -45,14 +45,17 @@
             /*flex-direction: column;*/
             justify-content: center;
             align-items: center;
+            pointer-events: none;
             /*border: 2px red dashed;*/
             /*height: 100%;*/
             /*width: 100vw;*/
             flex-grow: 1;
             margin: auto;
-            aspect-ratio: 1/1;
             /*background-color: white;*/
             /*border: none;*/
+            /*overflow: hidden;*/
+            /*width: 100%;*/
+            aspect-ratio: 1/1;
         }
         iframe {
             height: 100%;
@@ -65,14 +68,7 @@
 
     <p>What is the password?</p>
     <div id="entry"></div>
-    <div id="message">
-    <!--    arrows-->
-<!--        <i class="fa-solid fa-arrow-up"></i>-->
-<!--        <i class="fa-solid fa-arrow-right"></i>-->
-<!--        <i class="fa-solid fa-arrow-down"></i>-->
-<!--        <i class="fa-solid fa-arrow-left"></i>-->
-
-    </div>
+    <div id="message"></div>
 
 <!--    passcode fail-->
 
@@ -124,6 +120,36 @@
                     // console.log(input);
 
                     //trying to add paragraphs to div to display keyed in values
+                    // if (event = "38") {
+                    //     inputDisplay += "<p><i className="
+                    //     fa - solid
+                    //     fa - arrow - up
+                    //     "></i></p>";
+                    // } else {
+                    //     if (event = "39") {
+                    //         inputDisplay += "<p><i className="
+                    //         fa - solid
+                    //         fa - arrow - right
+                    //         "></i></p>";
+                    //     } else {
+                    //         if (event = "40") {
+                    //             inputDisplay += "<p><i className="
+                    //             fa - solid
+                    //             fa - arrow - down
+                    //             "></i></p>";
+                    //         } else {
+                    //             if (event = "37") {
+                    //                 inputDisplay += "<p><i className="
+                    //                 fa - solid
+                    //                 fa - arrow - left
+                    //                 "></i></p>";
+                    //             } else {
+                    //                 inputDisplay += `<p>${event.key}</p>`;
+                    //             }
+                    //         }
+                    //     }
+                    // }
+
                     inputDisplay += `<p>${event.key}</p>`;
 
                     // console.log(`<p>${e.key}</p>`);
@@ -135,7 +161,7 @@
                     let last2Input = input.slice(-2);
                     let last2Pattern = pattern.slice(-2);
                     // console.log(`last2Input: ${last2Input}`);
-                    // console.log(`input: ${input}`);
+                    console.log(`input: ${input}`);
                     // console.log(`last2Pattern: ${last2Pattern}`);
                     // console.log(`pattern: ${pattern}`);
 
