@@ -55,7 +55,8 @@
     </div>
     <h4 id="my-h4-1" class="pt-5 pb-5">Life FAQ's:</h4>
     <button id="toggle-definition-btn" class="btn btn-warning mb-3" type="button">Toggle Class</button>
-    <button id="toggle-highlight-btn" class="btn btn-warning mb-3" type="button">Toggle Highlight</button>
+<!--    <button id="toggle-highlight-btn" class="btn btn-warning mb-3" type="button">Toggle All Highlight</button>-->
+    <button id="invert-highlight-btn" class="btn btn-warning mb-3" type="button">Invert Current Highlight</button>
     <dl>
         <dt>Will rubber bands will last longer when refrigerated?</dt>
         <dd class="invisible">Yes, when a rubber band is placed in the fridge, it causes the polymers to relax. This keeps the band from breaking down as fast as it normally does.</dd>
@@ -132,7 +133,13 @@
                 $("dd").toggleClass("invisible");
             });
 
-            $("#toggle-highlight-btn").click(function() {
+            // $("#toggle-highlight-btn").click(function(event) {
+            //     //toggles all current selections
+            //     $("dt").removeClass();
+            //     $("dt").toggleClass("dtBg");
+            // });
+
+            $("#invert-highlight-btn").click(function() {
                 $("dt").toggleClass("dtBg");
             });
 
