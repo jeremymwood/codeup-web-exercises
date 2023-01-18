@@ -27,11 +27,20 @@
             margin: .5em 0 2em 1em;
         }
         .invisible {
-            /*display: none;*/
-            visibility: hidden;
+            display: none;
+            /*visibility: hidden;*/
         }
         .dtBg {
             background-color: #ee9c9c;
+        }
+        .factsLiBg {
+            background-color: #a4ee9c;
+        }
+        .factsLiBold {
+            font-weight: bold;
+        }
+        h3 {
+            cursor: pointer;
         }
     </style>
 </head>
@@ -93,14 +102,28 @@
         <dd class="invisible">Your eyeballs do not grow or change their size as you age. Generally, only the vertical measure changes, but only by a small amount. By the time we reach 20–21 years old, our eyes will be at their permanent state.</dd>
     </dl>
 
-    <button id="parks-highlight-btn" class="btn btn-warning mb-3" type="button">Highlight Parks</button>
+    <button id="highlighter" class="btn btn-danger mb-3" type="button">Highlight Last Facts</button>
 
-    <h3 id="h3-0">Park</h3>
-    <ul>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
+    <h3 id="arches">Arches</h3>
+    <ul id="arches-facts" class="facts">
+        <li>In 1929 President Herbert Hoover created Arches National Monument, then in 1971 Congress designated Arches as a National Park under the Nixon administration.</li>
+        <li>There are more than 2000 natural sandstone arches inside Arches National Park.</li>
+        <li>Landscape Arch has the longest span of any arch in North America, 306 feet (93.3 meters), and is the fourth longest in the world</li>
+        <li>The enormous sandstone boulder atop Balanced Rock is presumed to weigh approximately 3,577 tons!</li>
+    </ul>
+    <h3 id="badlands">Badlands</h3>
+    <ul id="badlands-facts" class="facts">
+        <li>Bison, commonly known as buffalo, can be seen throughout the park.</li>
+        <li>Badlands lies in an ecological area known as a mixed-grass prairie.</li>
+        <li>The Badlands National Park area is known worldwide for its large number of fossil remains.</li>
+        <li>The name Badlands comes from the Lakota, who first called it "mako sica", or "land that is bad".</li>
+    </ul>
+    <h3 id="joshua">Joshua Tree</h3>
+    <ul id="joshua-facts" class="facts">
+        <li>As part of the Desert Protection Bill, Joshua Tree National Monument was elevated to national park status on October 31, 1994.</li>
+        <li>Early explorer John Fremont described Joshua trees as "the most repulsive tree in the vegetable Kingdom".</li>
+        <li>Mormon pioneers thought the limbs of the Joshua trees resembled the upstretched arms of Joshua leading them to the promised land.</li>
+        <li>More than 550,000 acres of Joshua Tree National Park's nearly 800,000 acres are designated as wilderness.</li>
     </ul>
 
     <script src="js/jquery-3.6.3.js"></script>
@@ -216,6 +239,35 @@
             //use random with center button
             //50% prev, rest next
             //attr? give attribute name, read and write
+
+
+            // $("#highlighter").click(function() {
+            //     $(".facts").children().last()(function() {
+            //         $("li").toggleClass("factsLiBg");
+            //     });
+            // });
+
+            $("#highlighter").click(function() {
+                $(".facts").each(function() {
+                    $(this).children().last().toggleClass("factsLiBg");
+                });
+            });
+
+            $("h3").click(function() {
+                $(".facts").each(function() {
+                    $(this).children().toggleClass("factsLiBold");
+                });
+
+                // $(this).children().toggleClass("factsLiBg");
+
+            });
+
+            // $("h3").click(function(event) {
+            //     $(this).children().toggleClass("factsLiBg");
+            // });
+
+            // $('li.my-li').last().css('font-weight', 'bolder');
+
 
         });
     </script>
