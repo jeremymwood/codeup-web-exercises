@@ -50,15 +50,15 @@
             aspect-ratio: 1/1;
             overflow: hidden;
         }
-        .box-1-opacity {
-            opacity: 25%;
-        }
-        .box-2-opacity {
-            opacity: 50%;
-        }
-        .box-3-opacity {
-            opacity: 75%;
-        }
+        /*.box-1-opacity {*/
+        /*    opacity: 25%;*/
+        /*}*/
+        /*.box-2-opacity {*/
+        /*    opacity: 50%;*/
+        /*}*/
+        /*.box-3-opacity {*/
+        /*    opacity: 75%;*/
+        /*}*/
     </style>
 </head>
 <body class="m-3">
@@ -320,30 +320,24 @@
                     $("#box-2").children().attr("src", box1src);
                 }
             });
-            // $("#box-2-btn").click(function() {
-            //     // $("#box-1").children().toggleClass("box-1-opacity");
-            //     let box1src = $("#box-1").children().attr('src');
-            //     let box2src = $("#box-2").children().attr('src');
-            //     let box3src = $("#box-3").children().attr('src');
-            //     // console.log(box1src);
-            //     // console.log(box2src);
-            //
-            //     if ($("#box-1").children().attr("src") === box1src) {
-            //         $("#box-1").children().attr("src", box2src);
-            //         $("#box-2").children().attr("src", box1src);
-            //     }
-            //
-            //     if ($("#box-3").children().attr("src") === box3src) {
-            //         $("#box-3").children().attr("src", box2src);
-            //         $("#box-2").children().attr("src", box3src);
-            //     }
-            // });
+            $("#box-2-btn").click(function() {
+                let box1src = $("#box-1").children().attr('src');
+                let box2src = $("#box-2").children().attr('src');
+                let box3src = $("#box-3").children().attr('src');
+
+                if ($("#box-1").children().attr("src") === box1src) {
+                    $("#box-1").children().attr("src", box2src);
+                    $("#box-2").children().attr("src", box1src);
+                }
+
+                if ($("#box-3").children().attr("src") === box3src) {
+                    $("#box-3").children().attr("src", box2src);
+                    $("#box-2").children().attr("src", box3src);
+                }
+            });
             $("#box-3-btn").click(function() {
-                // $("#box-1").children().toggleClass("box-1-opacity");
                 let box3src = $("#box-3").children().attr('src');
                 let box2src = $("#box-2").children().attr('src');
-                // console.log(box1src);
-                // console.log(box2src);
 
                 if ($("#box-3").children().attr("src") === box3src) {
                     $("#box-3").children().attr("src", box2src);
