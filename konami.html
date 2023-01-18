@@ -3,19 +3,56 @@
 <head>
     <title>Konami Code</title>
     <script src="https://kit.fontawesome.com/4d0b40d330.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Abel&family=Anton&family=Lato:wght@300&family=Montserrat&family=Roboto&family=Source+Code+Pro&family=Work+Sans&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --main-bg-color: #f1eaad;
+            --fail-bg-color: #ef8d8d;
+            --pass-bg-color: #a6e598;
+
+        }
+        * {
+            box-sizing: border-box;
+            font-family: 'Roboto';
+        }
+        body {
+            height: 100vh;
+            margin: 0;
+            padding: 2em;
+            display: flex;
+            flex-direction: column;
+            background-color: var(--main-bg-color);
+        }
         h1, p {
             text-align: center;
         }
-        #message {
+        #entry {
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
+            justify-content: center;
+        }
+        #entry p {
+            text-align: center;
+            padding: .5em;
+            font-weight: bolder;
+        }
+        #message {
+            /*padding: 1em;*/
+            /*display: flex;*/
+            /*flex-grow: 1;*/
+            /*flex-direction: column;*/
             justify-content: center;
             align-items: center;
             /*border: 2px red dashed;*/
+            /*height: 100%;*/
+            /*width: 100vw;*/
+            flex-grow: 1;
+            margin: auto;
             aspect-ratio: 1/1;
-            background-color: white;
-            border: none;
+            /*background-color: white;*/
+            /*border: none;*/
         }
         iframe {
             height: 100%;
@@ -27,6 +64,7 @@
     <h1>Konami Code</h1>
 
     <p>What is the password?</p>
+    <div id="entry"></div>
     <div id="message">
     <!--    arrows-->
 <!--        <i class="fa-solid fa-arrow-up"></i>-->
@@ -34,7 +72,6 @@
 <!--        <i class="fa-solid fa-arrow-down"></i>-->
 <!--        <i class="fa-solid fa-arrow-left"></i>-->
 
-<!--        <iframe src="https://www.youtube.com/embed/cQ_b4_lw0Gg?&autoplay=1" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>-->
     </div>
 
 <!--    passcode fail-->
@@ -84,13 +121,14 @@
                 let pattern = "3838404037393739666513";
                 $(document).keydown(function(event) {
                     input += event.keyCode;
-                    console.log(input);
+                    // console.log(input);
 
                     //trying to add paragraphs to div to display keyed in values
                     inputDisplay += `<p>${event.key}</p>`;
 
                     // console.log(`<p>${e.key}</p>`);
-                    // $("#message").innerHTML(`<p>${e.keyCode}</p>`);
+                    // $("#message").innerHTML(`<!--<p>${e.keyCode}</p>-->`);
+                    $("#entry").html(`<p>${inputDisplay}</p>`);
                     // console.log(input.indexOf(pattern));
 
                     //target beginning and ending characters for applying error?
@@ -102,22 +140,22 @@
                     // console.log(`pattern: ${pattern}`);
 
                     if (input !== pattern && last2Input !== last2Pattern) {
-                        $("body").css("background-color", "white");
+                        $("body").css("background-color", "var(--main-bg-color)");
                     } else {
                         if (input !== pattern && last2Input === last2Pattern) {
-                            $("body").css("background-color", "red");
+                            $("body").css("background-color", "var(--fail-bg-color)");
                             // $("#message").html("No dice:(");
-                            $("#message").html("<iframe src=\"https://www.youtube.com/embed/cQ_b4_lw0Gg?&autoplay=1&player.setVolume(4)\" title=\"YouTube video player\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>");
+                            $("#message").html("<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/cQ_b4_lw0Gg?&autoplay=1&player.setVolume(4)&showinfo=0\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>");
                             setTimeout(function(){
                                 window.location.reload();
                             }, 6700);
                             // $("#message").addClass("fail");
                         } else {
-                            $("body").css("background-color", "palegreen");
+                            $("body").css("background-color", "var(--pass-bg-color)");
                             // $("#message").html("You have added 30 lives!");
                             // $("#message").html("<iframe src=\"https://www.youtube.com/embed/n7cEWfskTUs?&autoplay=1\" title=\"YouTube video player\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>");
 
-                            $("#message").html("<iframe src=\"https://www.youtube.com/embed/-W71Cg00R0w?&autoplay=1&controls=0&amp;start=181\" title=\"YouTube video player\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>");
+                            $("#message").html("<iframe src=\"https://www.youtube.com/embed/-W71Cg00R0w?&autoplay=1&controls=0&amp;start=181&showinfo=0\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>");
                             setTimeout(function(){
                                 window.location.reload();
                             }, 8000);
