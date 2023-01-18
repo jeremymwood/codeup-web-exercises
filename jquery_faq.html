@@ -39,7 +39,7 @@
         .factsLiBold {
             font-weight: bold;
         }
-        .factsh3 {
+        .factsH3 {
             color: blue;
         }
         h3, li {
@@ -148,9 +148,9 @@
     </div>
     <div class="container">
         <div class="row">
-            <button id="box-1-btn" class="col-4 btn btn-warning mb-3 border border-2 border-secondary" type="button">swap 1 & 2</button>
-            <button id="box-2-btn" class="col-4 btn btn-warning mb-3 border border-2 border-secondary" type="button">swap 1 & 3</button>
-            <button id="box-3-btn" class="col-4 btn btn-warning mb-3 border border-2 border-secondary" type="button">swap 2 & 3</button>
+            <button id="box-1-btn" class="col-4 btn btn-warning mb-3 border border-1 border-secondary" type="button">swap 1 & 2</button>
+            <button id="box-2-btn" class="col-4 btn btn-warning mb-3 border border-1 border-secondary" type="button">swap 1 & 3</button>
+            <button id="box-3-btn" class="col-4 btn btn-warning mb-3 border border-1 border-secondary" type="button">swap 2 & 3</button>
         </div>
     </div>
 
@@ -289,8 +289,16 @@
                 // $(".facts").each(function() {
                 //     $(this).children().toggleClass("factsLiBold");
                 // });
-                    $(this).parent().prev().toggleClass("factsh3");
+                    $(this).parent().prev().toggleClass("factsH3");
             });
+
+            //traversal exercise
+            //target source, swap with next
+            //use random with center button
+            //50% prev, rest next
+            //attr? give attribute name, read and write
+
+
 
         });
     </script>
