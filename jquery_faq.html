@@ -39,7 +39,10 @@
         .factsLiBold {
             font-weight: bold;
         }
-        h3 {
+        .factsh3 {
+            color: blue;
+        }
+        h3, li {
             cursor: pointer;
         }
     </style>
@@ -254,20 +257,15 @@
             });
 
             $("h3").click(function() {
-                $(".facts").each(function() {
-                    $(this).children().toggleClass("factsLiBold");
-                });
-
-                // $(this).children().toggleClass("factsLiBg");
-
+                    $(this).next().children().toggleClass("factsLiBold");
             });
 
-            // $("h3").click(function(event) {
-            //     $(this).children().toggleClass("factsLiBg");
-            // });
-
-            // $('li.my-li').last().css('font-weight', 'bolder');
-
+            $(".facts > li").click(function() {
+                // $(".facts").each(function() {
+                //     $(this).children().toggleClass("factsLiBold");
+                // });
+                    $(this).parent().prev().toggleClass("factsh3");
+            });
 
         });
     </script>
