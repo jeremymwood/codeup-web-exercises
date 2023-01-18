@@ -40,7 +40,7 @@
 
         <h4 id="my-h4-1" class="mb-4">Click this to alert the html and then set it to Hello World</h4>
 
-        <ul>
+        <ul class="ul-1">
             <li class="my-li">Item 1</li>
             <li class="my-li">Item 2</li>
             <li class="my-li">Item 3</li>
@@ -93,6 +93,16 @@
         <dd class="invisible">Your eyeballs do not grow or change their size as you age. Generally, only the vertical measure changes, but only by a small amount. By the time we reach 20–21 years old, our eyes will be at their permanent state.</dd>
     </dl>
 
+    <button id="parks-highlight-btn" class="btn btn-warning mb-3" type="button">Highlight Parks</button>
+
+    <h3 id="h3-0">Park</h3>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+
     <script src="js/jquery-3.6.3.js"></script>
     <script>
         // get in a habit of putting dom manipulating stuff inside a ready function
@@ -107,12 +117,12 @@
 
             // click Add Class to add the cool-hover class to all the lis
             $("#add-class-btn").click(function() {
-                $("li").addClass("cool-hover");
+                $("li.my-li").addClass("cool-hover");
             });
 
             // click Remove Class to remove the cool-hover class from all the lis
             $("#remove-class-btn").click(function() {
-                $("li").removeClass("cool-hover");
+                $("li.my-li").removeClass("cool-hover");
             });
 
             let toggleState = 0;
@@ -120,10 +130,10 @@
             // click the Toggle Class to toggle the cool-border class on all the lis
             $("#toggle-class-btn").click(function() {
                 if(toggleState % 2 === 0) {
-                    $("li").toggleClass("cool-border");
+                    $("li.my-li").toggleClass("cool-border");
                     toggleState++;
                 } else {
-                    $("li").toggleClass("cool-bg");
+                    $("li.my-li").toggleClass("cool-bg");
                     toggleState++;
                 }
             });
@@ -155,7 +165,7 @@
             // TRAVERSING
 
             // use the .each method to change every other LI to light grey background color
-            $("li").each(function (index) {
+            $("li.my-li").each(function (index) {
                 // use the .each method to change the font-weight of every other LI
                 if (index % 2 === 0) {
                     $(this).css("background-color", "lightgrey");
@@ -167,11 +177,11 @@
             });
 
             // use the .first method to change the font-weight of the first LI
-            $('li').first().css('font-weight', 'bolder');
+            $('li.my-li').first().css('font-weight', 'bolder');
 
             // use the .last method to change the font-weight to be the same as the first LI
             // be sure to read the font-weight from the first LI
-            $('li').last().css('font-weight', 'bolder');
+            $('li.my-li').last().css('font-weight', 'bolder');
 
 
 
@@ -195,10 +205,10 @@
             // QUESTION: how do we add a new li to the ul?
             // can we just use jquery for it?
             // console.log($("ul").html());
-            let oldHtml = $("ul").html();
+            let oldHtml = $("ul.ul-1").html();
             oldHtml += `<li class="my-Li">Item 6</li>`;
             oldHtml += `<li class="my-Li">Item 7</li>`;
-            $("ul").html(oldHtml);
+            $("ul.ul-1").html(oldHtml);
 
 
             //traversal exercise
