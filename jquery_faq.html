@@ -9,62 +9,113 @@
 <!--          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">-->
 <!--    <script src="https://kit.fontawesome.com/4d0b40d330.js" crossorigin="anonymous"></script>-->
     <style>
-        p,
-        dt {
-            font-weight: bold;
+        .cool-hover:hover {
+            font-weight: bolder;
         }
 
-        dl,
-        dd {
-            font-size: 0.9rem;
+        .cool-border {
+            border: 2px solid red;
         }
 
-        dd {
-            margin-bottom: 1em;
+        .cool-bg {
+            background-color: cornflowerblue;
         }
 
     </style>
 </head>
 <body>
+    <div class="container-fluid">
 
-    <p>Cryptids of Cornwall:</p>
+        <h4 id="my-h4-1" class="mb-4">Click this to alert the html and then set it to Hello World</h4>
 
-    <dl>
-        <dt>Beast of Bodmin</dt>
-        <dd>A large feline inhabiting Bodmin Moor.</dd>
+        <ul>
+            <li class="my-li">Item 1</li>
+            <li class="my-li">Item 2</li>
+            <li class="my-li">Item 3</li>
+            <li class="my-li">Item 4</li>
+            <li class="my-li">Item 5</li>
+        </ul>
 
-        <dt>Morgawr</dt>
-        <dd>A sea serpent.</dd>
+        <button id="add-class-btn" class="btn btn-primary" type="button">Add Class</button>
+        <button id="remove-class-btn" class="btn btn-success" type="button">Remove Class</button>
+        <button id="toggle-class-btn" class="btn btn-warning" type="button">Toggle Class</button>
+    </div>
 
-        <dt>Owlman</dt>
-        <dd>A giant owl-like creature.</dd>
-    </dl>
+<!--    <p>Cryptids of Cornwall:</p>-->
 
-    <p>Yet another list:</p>
-    <ul>
-        <li>item 1</li>
-        <li>item 2</li>
-        <li>item 3</li>
-        <li>item 4</li>
-    </ul>
+<!--    <dl>-->
+<!--        <dt>Beast of Bodmin</dt>-->
+<!--        <dd>A large feline inhabiting Bodmin Moor.</dd>-->
 
-    <button id="add-class-btn">Add class</button>
-    <button id="remove-class-btn">Remove class</button>
-    <button id="toggle-class-btn">Toggle class</button>
+<!--        <dt>Morgawr</dt>-->
+<!--        <dd>A sea serpent.</dd>-->
+
+<!--        <dt>Owlman</dt>-->
+<!--        <dd>A giant owl-like creature.</dd>-->
+<!--    </dl>-->
+
+
 
     <script src="js/jquery-3.6.3.js"></script>
     <script>
+        // get in a habit of putting dom manipulating stuff inside a ready function
+        $(document).ready(function() {
 
-        $(document).ready(function () {
-            const myVar = $(#my-h4-1).html();
-            $("my-h4-1").addclass("cool-hover");
+            // when the h4 is clicked alert the html() and then set the html() to Hello World
+            const myVar = $("#my-h4-1").html();
+            $("#my-h4-1").click(function() {
+                alert(myVar);
+                $("#my-h4-1").html("Hello World");
+            })
+
+            // click Add Class to add the cool-hover class to all the lis
+            $("#add-class-btn").click(function() {
+                $("li").addClass("cool-hover");
+            });
+
+            // click Remove Class to remove the cool-hover class from all the lis
+            $("#remove-class-btn").click(function() {
+                $("li").removeClass("cool-hover");
+            });
+
+            let toggleState = 0;
+
+            // click the Toggle Class to toggle the cool-border class on all the lis
+            $("#toggle-class-btn").click(function() {
+                if(toggleState % 2 === 0) {
+                    $("li").toggleClass("cool-border");
+                    toggleState++;
+                } else {
+                    $("li").toggleClass("cool-bg");
+                    toggleState++;
+                }
+            });
+
+            // TRAVERSING
+
+            // use the .each method to change every other LI to light grey background color
+
+            // use the .first method to change the font-weight of the first LI
+
+            // use the .last method to change the font-weight to be the same as the first LI
+            // be sure to read the font-weight from the first LI
 
 
+            // use the .children() method to add the BS ms-5 class
+            // to all of the container-fluid's children
+            // $(".container-fluid").children().addClass("ms-5");
 
+            // get the parent of the button with an id add-class-btn
 
-        })
+            // get the next sibling of the button with an id add-class-btn
 
+            // QUESTION: how do we add a new li to the ul?
+            // can we just use jquery for it?
+
+        });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"crossorigin="anonymous"></script>
 </body>
 </html>
+
+
