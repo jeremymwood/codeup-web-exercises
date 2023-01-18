@@ -5,8 +5,8 @@
     <title>jquery_faq</title>
 <!--    <link rel="preconnect" href="https://fonts.googleapis.com">-->
 <!--    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>-->
-<!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"-->
-<!--          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <!--    <script src="https://kit.fontawesome.com/4d0b40d330.js" crossorigin="anonymous"></script>-->
     <style>
         .cool-hover:hover {
@@ -24,12 +24,18 @@
             font-weight: bolder;
         }
         dd {
-            margin-bottom: .5em;
+            margin: .5em 0 2em 1em;
         }
-
+        .invisible {
+            /*display: none;*/
+            visibility: hidden;
+        }
+        .dtBg {
+            background-color: #ee9c9c;
+        }
     </style>
 </head>
-<body>
+<body class="m-3">
     <h4 id="my-h4-1" class="mb-4">in class instruction</h4>
     <div class="container-fluid">
 
@@ -47,11 +53,9 @@
         <button id="remove-class-btn" class="btn btn-success" type="button">Remove Class</button>
         <button id="toggle-class-btn" class="btn btn-warning" type="button">Toggle Class</button>
     </div>
-
-    <hr>
-
-    <h4 id="my-h4-1" class="mb-4">Life FAQ's</h4>
-
+    <h4 id="my-h4-1" class="pt-5 pb-5">Life FAQ's:</h4>
+    <button id="toggle-definition-btn" class="btn btn-warning mb-3" type="button">Toggle Class</button>
+    <button id="toggle-highlight-btn" class="btn btn-warning mb-3" type="button">Toggle Highlight</button>
     <dl>
         <dt>Will rubber bands will last longer when refrigerated?</dt>
         <dd class="invisible">Yes, when a rubber band is placed in the fridge, it causes the polymers to relax. This keeps the band from breaking down as fast as it normally does.</dd>
@@ -86,11 +90,7 @@
 
         <dt>Do your eyeballs grow?</dt>
         <dd class="invisible">Your eyeballs do not grow or change their size as you age. Generally, only the vertical measure changes, but only by a small amount. By the time we reach 20–21 years old, our eyes will be at their permanent state.</dd>
-
-
     </dl>
-
-
 
     <script src="js/jquery-3.6.3.js"></script>
     <script>
@@ -127,6 +127,20 @@
                 }
             });
 
+            // toggle exercise
+            $("#toggle-definition-btn").click(function() {
+                $("dd").toggleClass("invisible");
+            });
+
+            $("#toggle-highlight-btn").click(function() {
+                $("dt").toggleClass("dtBg");
+            });
+
+            $('dt').click(function(event) {
+                event.preventDefault();
+                $(this).toggleClass('dtBg');
+            });
+
             // TRAVERSING
 
             // use the .each method to change every other LI to light grey background color
@@ -150,7 +164,6 @@
 
         });
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"crossorigin="anonymous"></script>
 </body>
 </html>
 
