@@ -47,6 +47,7 @@
         }
         .image-box {
             aspect-ratio: 1/1;
+            overflow: hidden;
         }
     </style>
 </head>
@@ -134,9 +135,15 @@
 
     <div class="container">
         <div class="row">
-            <div id="box-1" class="image-box col-4 border border-1 text-center">1</div>
-            <div id="box-2" class="image-box col-4 border border-1 text-center">2</div>
-            <div id="box-3" class="image-box col-4 border border-1 text-center">3</div>
+            <div id="box-1" class="image-box col-4 p-0 border border-1 text-center">
+                <img src="image/pollock.jpeg" alt="">
+            </div>
+            <div id="box-2" class="image-box col-4 p-0 border border-1 text-center">
+                <img src="image/grey.png" alt="">
+            </div>
+            <div id="box-3" class="image-box col-4 p-0 border border-1 text-center">
+                <img src="image/dali.webp" alt="">
+            </div>
         </div>
     </div>
     <div class="container">
