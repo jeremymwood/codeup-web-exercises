@@ -36,7 +36,6 @@
     </style>
 </head>
 <body class="m-3">
-    <h4 id="my-h4-1" class="mb-4">in class instruction</h4>
     <div class="container-fluid">
 
         <h4 id="my-h4-1" class="mb-4">Click this to alert the html and then set it to Hello World</h4>
@@ -53,10 +52,11 @@
         <button id="remove-class-btn" class="btn btn-success" type="button">Remove Class</button>
         <button id="toggle-class-btn" class="btn btn-warning" type="button">Toggle Class</button>
     </div>
-    <h4 id="my-h4-1" class="pt-5 pb-5">Life FAQ's:</h4>
-    <button id="toggle-definition-btn" class="btn btn-warning mb-3" type="button">Toggle Class</button>
+    <h4 class="pt-5 pb-5">Life FAQ's:</h4>
+    <button id="toggle-definition-btn" class="btn btn-warning mb-3" type="button">Toggle Definition</button>
 <!--    <button id="toggle-highlight-btn" class="btn btn-warning mb-3" type="button">Toggle All Highlight</button>-->
     <button id="invert-highlight-btn" class="btn btn-warning mb-3" type="button">Invert Current Highlight</button>
+    <button id="clear-highlight-btn" class="btn btn-warning mb-3" type="button">Clear Highlight</button>
     <dl>
         <dt>Will rubber bands will last longer when refrigerated?</dt>
         <dd class="invisible">Yes, when a rubber band is placed in the fridge, it causes the polymers to relax. This keeps the band from breaking down as fast as it normally does.</dd>
@@ -143,6 +143,10 @@
                 $("dt").toggleClass("dtBg");
             });
 
+            $("#clear-highlight-btn").click(function() {
+                $("dt").removeClass();
+            });
+
             $('dt').click(function(event) {
                 event.preventDefault();
                 $(this).toggleClass('dtBg');
@@ -151,23 +155,57 @@
             // TRAVERSING
 
             // use the .each method to change every other LI to light grey background color
+            $("li").each(function (index) {
+                // use the .each method to change the font-weight of every other LI
+                if (index % 2 === 0) {
+                    $(this).css("background-color", "lightgrey");
+                }
+
+                // or style each by index
+                // $(this).css("background-color", "lightgrey");
+
+            });
 
             // use the .first method to change the font-weight of the first LI
+            $('li').first().css('font-weight', 'bolder');
 
             // use the .last method to change the font-weight to be the same as the first LI
             // be sure to read the font-weight from the first LI
+            $('li').last().css('font-weight', 'bolder');
+
 
 
             // use the .children() method to add the BS ms-5 class
             // to all of the container-fluid's children
-            // $(".container-fluid").children().addClass("ms-5");
+            $(".container-fluid").children().addClass("ms-5");
+            //or bypass children method
+            // $(".container-fluid > *").addClass("ms-5");
+
 
             // get the parent of the button with an id add-class-btn
+            // console.log($("#add-class-btn").parent().html());
 
             // get the next sibling of the button with an id add-class-btn
+            console.log($("#add-class-btn").next().html());
+            console.log($("#remove-class-btn").next().html());
+
+            //log number of list items next to h4
+            console.log($("#my-h4-1").next().children().length);
 
             // QUESTION: how do we add a new li to the ul?
             // can we just use jquery for it?
+            // console.log($("ul").html());
+            let oldHtml = $("ul").html();
+            oldHtml += `<li class="my-Li">Item 6</li>`;
+            oldHtml += `<li class="my-Li">Item 7</li>`;
+            $("ul").html(oldHtml);
+
+
+            //traversal exercise
+            //target source, swap with next
+            //use random with center button
+            //50% prev, rest next
+            //attr? give attribute name, read and write
 
         });
     </script>
