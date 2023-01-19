@@ -40,8 +40,9 @@
         .factsLiBold {
             font-weight: bold;
         }
-        .factsH3 {
+        .factsBlue {
             color: blue;
+            font-weight: bolder;
         }
         h3, li {
             cursor: pointer;
@@ -275,13 +276,6 @@
             //50% prev, rest next
             //attr? give attribute name, read and write
 
-
-            // $("#highlighter").click(function() {
-            //     $(".facts").children().last()(function() {
-            //         $("li").toggleClass("factsLiBg");
-            //     });
-            // });
-
             $("#highlighter").click(function() {
                 $(".facts").each(function() {
                     $(this).children().last().toggleClass("factsLiBg");
@@ -296,15 +290,10 @@
                 // $(".facts").each(function() {
                 //     $(this).children().toggleClass("factsLiBold");
                 // });
-                    $(this).parent().prev().toggleClass("factsH3");
+                    $(this).parent().children().first().toggleClass("factsBlue");
             });
 
-            //target source, swap with next
-            //use random with center button
-            //50% prev, rest next
-            //attr? give attribute name, read and write
-
-
+            //swapping algorithm
             $("#box-1-btn").click(function() {
                 // $("#box-1").children().toggleClass("box-1-opacity");
                 let box1src = $("#box-1").children().attr('src');
