@@ -322,13 +322,18 @@
                 let box2src = $("#box-2").children().attr('src');
                 let box3src = $("#box-3").children().attr('src');
 
-                // case 1
-                $("#box-1").children().attr("src", box2src);
-                $("#box-2").children().attr("src", box1src);
+                let oneOrZero = (Math.random()>0.5)? 1 : 0;
+                // console.log(oneOrZero);
 
-                // case 2
-                // $("#box-3").children().attr("src", box2src);
-                // $("#box-2").children().attr("src", box3src);
+                if (oneOrZero === 0) {
+                    // case 1
+                    $("#box-1").children().attr("src", box2src);
+                    $("#box-2").children().attr("src", box1src);
+                } else {
+                    // case 2
+                    $("#box-3").children().attr("src", box2src);
+                    $("#box-2").children().attr("src", box3src);
+                }
             });
             $("#box-3-btn").click(function() {
                 let box3src = $("#box-3").children().attr('src');
