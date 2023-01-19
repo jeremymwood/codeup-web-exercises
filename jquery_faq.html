@@ -49,6 +49,12 @@
         .image-box {
             aspect-ratio: 1/1;
             overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        img {
+            max-height: 100%;
         }
     </style>
 </head>
@@ -137,13 +143,13 @@
     <div class="container">
         <div class="row">
             <div id="box-1" class="image-box col-4 p-0 border border-1 text-center">
-                <img src="image/pollock.jpeg" alt="">
-            </div>
-            <div id="box-2" class="image-box col-4 p-0 border border-1 text-center">
                 <img src="image/grey.png" alt="">
             </div>
-            <div id="box-3" class="image-box col-4 p-0 border border-1 text-center">
+            <div id="box-2" class="image-box col-4 p-0 border border-1 text-center">
                 <img src="image/dali.webp" alt="">
+            </div>
+            <div id="box-3" class="image-box col-4 p-0 border border-1 text-center">
+                <img src="image/daVinci.jpeg" alt="">
             </div>
         </div>
     </div>
