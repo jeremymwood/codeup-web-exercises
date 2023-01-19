@@ -140,7 +140,13 @@
         <li>Mormon pioneers thought the limbs of the Joshua trees resembled the upstretched arms of Joshua leading them to the promised land.</li>
         <li>More than 550,000 acres of Joshua Tree National Park's nearly 800,000 acres are designated as wilderness.</li>
     </ul>
-
+    <div class="container">
+        <div class="row">
+            <button id="box-1-btn" class="col-4 btn btn-warning mb-3 border border-1 border-secondary" type="button">swap 1 & 2</button>
+            <button id="box-2-btn" class="col-4 btn btn-warning mb-3 border border-1 border-secondary" type="button">swap 2 & 1 or 3</button>
+            <button id="box-3-btn" class="col-4 btn btn-warning mb-3 border border-1 border-secondary" type="button">swap 2 & 3</button>
+        </div>
+    </div>
     <div class="container">
         <div class="row">
             <div id="box-1" class="image-box col-4 p-0 border border-1 text-center">
@@ -154,13 +160,7 @@
             </div>
         </div>
     </div>
-    <div class="container">
-        <div class="row">
-            <button id="box-1-btn" class="col-4 btn btn-warning mb-3 border border-1 border-secondary" type="button">swap 1 & 2</button>
-            <button id="box-2-btn" class="col-4 btn btn-warning mb-3 border border-1 border-secondary" type="button">swap 2 & 1 or 3</button>
-            <button id="box-3-btn" class="col-4 btn btn-warning mb-3 border border-1 border-secondary" type="button">swap 2 & 3</button>
-        </div>
-    </div>
+
 
     <script src="js/jquery-3.6.3.js"></script>
     <script>
@@ -294,6 +294,11 @@
             });
 
             //swapping algorithm
+            // could also swap classes with div containing bg image
+            // benefit is being able to nest text or other elements in image div
+
+            // i believe there is a case for declaring id specific variables over relative structure traversal.  should the client decide to restructure the aesthetics of the page, the algo will break.
+
             $("#box-1-btn").click(function() {
                 // $("#box-1").children().toggleClass("box-1-opacity");
                 let box1src = $("#box-1").children().attr('src');
@@ -303,12 +308,17 @@
                 $("#box-1").children().attr("src", box2src);
                 $("#box-2").children().attr("src", box1src);
             });
+
+            // how can i clean this up to utilize the work of the first and third buttons?
+            // nest all three button functions in one function and call three source variables in each
+            // could initialize as undefined and redefine inside specific
             $("#box-2-btn").click(function() {
                 let box1src = $("#box-1").children().attr('src');
                 let box2src = $("#box-2").children().attr('src');
                 let box3src = $("#box-3").children().attr('src');
 
                 let oneOrZero = (Math.random()>0.5)? 1 : 0;
+                // check random function
                 // console.log(oneOrZero);
 
                 if (oneOrZero === 0) {
@@ -317,13 +327,13 @@
                     $("#box-2").children().attr("src", box1src);
                 } else {
                     // case 2
-                    $("#box-3").children().attr("src", box2src);
                     $("#box-2").children().attr("src", box3src);
+                    $("#box-3").children().attr("src", box2src);
                 }
             });
             $("#box-3-btn").click(function() {
-                let box3src = $("#box-3").children().attr('src');
                 let box2src = $("#box-2").children().attr('src');
+                let box3src = $("#box-3").children().attr('src');
 
                 $("#box-3").children().attr("src", box2src);
                 $("#box-2").children().attr("src", box3src);
