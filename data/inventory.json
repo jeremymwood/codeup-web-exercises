@@ -31,12 +31,12 @@
         ],
         "price": 10
     }, {
-    "title": "Wingnuts",
-    "quantity": 40,
-    "categories": [
-        "hardware"
-    ],
-    "price": 2.35
-}
+        "title": "Wingnuts",
+        "quantity": 40,
+        "categories": [
+            "hardware"
+        ],
+        "price": 2.35
+    }
 
 ]

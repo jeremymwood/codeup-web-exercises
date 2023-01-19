@@ -7,6 +7,12 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <!--    <script src="https://kit.fontawesome.com/4d0b40d330.js" crossorigin="anonymous"></script>-->
+    <style>
+        .cool-bg {
+            background-color: #999999;
+        }
+
+    </style>
 </head>
 <body class="d-flex flex-column justify-center m-3">
 
@@ -23,7 +29,7 @@
     </thead>
     <tbody id="insertProducts"></tbody>
 </table>
-<button type="button" class="btn btn-secondary mt-3">Refresh</button>
+<button type="button" id="jsonRefresh" class="btn btn-secondary mt-3">Refresh</button>
 
 <script src="js/jquery-3.6.3.js"></script>
 
@@ -46,22 +52,25 @@
         // and print out each thing
         // console.log(data);
 
+        //could probably clean this up
         for (let i = 0; i < data.length; i++) {
-            $("#insertProducts").append("<tr>");
-
-            $("#insertProducts").append("<td>" + data[i].title + "</td>");
-
-            $("#insertProducts").append("<td>" + data[i].quantity + "</td>");
-
-            $("#insertProducts").append("<td>" + data[i].price + "</td>");
-
-            $("#insertProducts").append("<td>" + data[i].categories + "</td>");
-
-            $("#insertProducts").append("</tr>");
+            $("#insertProducts").append("<tr class='trCLass'><td>" + data[i].title + "</td><td>" + data[i].quantity + "</td><td>" + data[i].price + "</td><td>" + data[i].categories + "</td></tr>");
         }
+
+        $(document).ready(function() {
+        $(".trCLass:even").css("background-color", "lightgrey");
+        });
+
+
     }).fail(function(jqXhr, status, error) {
             console.log("crap! "  + jqXhr.status)
         });
+
+        // $("#jsonRefresh").click(function() {
+        //     // console.log("refreshed")
+        //     $.ajax("data/inventory.json").reload();
+        // });
+
 
     //             its contents and fields
     //       HINT: You will want to target #insertProducts for your new HTML elements
