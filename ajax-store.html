@@ -8,9 +8,9 @@
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <!--    <script src="https://kit.fontawesome.com/4d0b40d330.js" crossorigin="anonymous"></script>-->
 </head>
-<body class="p-5">
+<body class="d-flex flex-column justify-center m-3">
 
-<h1>My Tool Store</h1>
+<h1 class="text-center">My Tool Store</h1>
 
 <table id="products">
     <thead>
@@ -23,6 +23,7 @@
     </thead>
     <tbody id="insertProducts"></tbody>
 </table>
+<button type="button" class="btn btn-secondary mt-3">Refresh</button>
 
 <script src="js/jquery-3.6.3.js"></script>
 
@@ -32,55 +33,35 @@
     "use strict";
     // TODO: Create an AJAX GET request for the file under data/inventory.json
 
-    // $.ajax("data/inventory.json", {
-    //     type: "GET",
-    //     data: {
-    //         name:     "John",
-    //         location: "Boston"
-    //     }
-    // });
-
     // $.get( "data/inventory.json", function( data ) {
     //     $( ".result" ).html( data );
     //     alert( "Load was performed." );
     // });
 
-    // fetch('https://animechan.vercel.app/api/random')
-    //     .then(response => response.json())
-    //     .then(quote => console.log(quote))
-
-    //
-    //
-    //
     // TODO: Take the data from inventory.json and append it to the products table
     //       HINT: Your data should come back as a JSON object; use console.log() to inspect
 
-    $.ajax( "data/inventory.json", function( data ) {
-        $( "#insertProducts" )
-            .append( data.title )
-            .append( data.quantity )
-            .append( data.categories )
-            .append( data.price );
-    }, "json" );
+    $.ajax("data/inventory.json").done(function(data) {
+        // iterate over the data array
+        // and print out each thing
+        // console.log(data);
 
-    // <table id="products">
-    //     <thead>
-    //     <tr>
-    //         <th>Title</th>
-    //         <th>Quantity</th>
-    //         <th>Price</th>
-    //         <th>Categories</th>
-    //     </tr>
-    //     </thead>
-    //     <tbody id="insertProducts"></tbody>
-    // </table>
+        for (let i = 0; i < data.length; i++) {
+            $("#insertProducts").append("<tr>");
 
-    // "title": "Hammer",
-    //     "quantity": 25,
-    //     "categories": [
-    //     "tool"
-    // ],
-    //     "price": 20
+            $("#insertProducts").append("<td>" + data[i].title + "</td>");
+
+            $("#insertProducts").append("<td>" + data[i].quantity + "</td>");
+
+            $("#insertProducts").append("<td>" + data[i].price + "</td>");
+
+            $("#insertProducts").append("<td>" + data[i].categories + "</td>");
+
+            $("#insertProducts").append("</tr>");
+        }
+    }).fail(function(jqXhr, status, error) {
+            console.log("crap! "  + jqXhr.status)
+        });
 
     //             its contents and fields
     //       HINT: You will want to target #insertProducts for your new HTML elements
