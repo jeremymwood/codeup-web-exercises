@@ -8,7 +8,7 @@
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <!--    <script src="https://kit.fontawesome.com/4d0b40d330.js" crossorigin="anonymous"></script>-->
 </head>
-<body>
+<body class="p-5">
 
 <h1>My Tool Store</h1>
 
@@ -24,22 +24,69 @@
     <tbody id="insertProducts"></tbody>
 </table>
 
-<!--<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>-->
-
 <script src="js/jquery-3.6.3.js"></script>
-<script>
 
 <script>
 
 (function () {
-//     "use strict";
-//     // TODO: Create an AJAX GET request for the file under data/inventory.json
-//     //
-//     // TODO: Take the data from inventory.json and append it to the products table
-//     //       HINT: Your data should come back as a JSON object; use console.log() to inspect
-//     //             its contents and fields
-//     //       HINT: You will want to target #insertProducts for your new HTML elements
+    "use strict";
+    // TODO: Create an AJAX GET request for the file under data/inventory.json
+
+    // $.ajax("data/inventory.json", {
+    //     type: "GET",
+    //     data: {
+    //         name:     "John",
+    //         location: "Boston"
+    //     }
+    // });
+
+    // $.get( "data/inventory.json", function( data ) {
+    //     $( ".result" ).html( data );
+    //     alert( "Load was performed." );
+    // });
+
+    // fetch('https://animechan.vercel.app/api/random')
+    //     .then(response => response.json())
+    //     .then(quote => console.log(quote))
+
+    //
+    //
+    //
+    // TODO: Take the data from inventory.json and append it to the products table
+    //       HINT: Your data should come back as a JSON object; use console.log() to inspect
+
+    $.ajax( "data/inventory.json", function( data ) {
+        $( "#insertProducts" )
+            .append( data.title )
+            .append( data.quantity )
+            .append( data.categories )
+            .append( data.price );
+    }, "json" );
+
+    // <table id="products">
+    //     <thead>
+    //     <tr>
+    //         <th>Title</th>
+    //         <th>Quantity</th>
+    //         <th>Price</th>
+    //         <th>Categories</th>
+    //     </tr>
+    //     </thead>
+    //     <tbody id="insertProducts"></tbody>
+    // </table>
+
+    // "title": "Hammer",
+    //     "quantity": 25,
+    //     "categories": [
+    //     "tool"
+    // ],
+    //     "price": 20
+
+    //             its contents and fields
+    //       HINT: You will want to target #insertProducts for your new HTML elements
 })();
+
+
 
 </script>
 
