@@ -15,7 +15,7 @@
     <style>
         #map {
             width: 100%;
-            height: 700px;
+            height: 500px;
         }
     </style>
 </head>
@@ -24,7 +24,7 @@
 <h1 class="text-white">My First Mapbox Map!</h1>
 
 <!-- The HTML element that serves as the Mapbox container -->
-<div id='map'></div>
+<div class="rounded-3" id='map'></div>
 
 <!-- Mapbox JS -->
 <script src='https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.js'></script>
@@ -40,15 +40,28 @@
         const map = new mapboxgl.Map({
             container: 'map',
             style: 'mapbox://styles/mapbox/dark-v10',
-            zoom: 16,
+            zoom: 10,
             center: [-98.39431149232223, 29.511011025394158]
         })
 
         const marker = new mapboxgl.Marker();
         marker.setLngLat([-98.39431149232223, 29.511011025394158]);
-        marker.addTo(map)
+        marker.addTo(map);
 
-    })
+    });
+
+    function pinThatAddress(address) {
+        geocode(address, MAPBOX_API_KEY).then(function(result) {
+            const marker = new mapboxgl.Marker();
+            marker.setLngLat(result);
+            marker.addTo(map);
+        }).catch(function (error){
+            console.log("error");
+        });
+    }
+
+    pinThatAddress("Alamo");
+
 </script>
 </body>
 </html>
