@@ -66,13 +66,11 @@
                     `;
                 //replace the html in #insertProducts
                 $("#insertProducts").html(htmlString);
-
             }
 
             $(document).ready(function() {
             $(".trCLass:even").css("background-color", "lightgrey");
             });
-
 
         })
             //fail not necessary for local source
@@ -82,12 +80,12 @@
         ;
     }
 
-    fetchTools();
-
     $("#jsonRefresh").click(function () {
-        console.log("working");
+        // console.log("working");
         fetchTools();
     })
+
+    fetchTools();
 
         // $("#jsonRefresh").click(function() {
         //     // console.log("refreshed")
