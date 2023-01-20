@@ -21,10 +21,10 @@
 </head>
 <body class="bg-dark m-3">
 
-<h1 class="text-white">My First Mapbox Map!</h1>
+<h1 class="text-white text-center pb-3">My First Mapbox Map!</h1>
 
 <!-- The HTML element that serves as the Mapbox container -->
-<div class="rounded-3" id='map'></div>
+<div class="border border-2 border-white  rounded-3" id='map'></div>
 
 <!-- Mapbox JS -->
 <script src='https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.js'></script>
@@ -32,9 +32,10 @@
 <script src="js/mapbox-geocoder-utils.js"></script>
 <script src="js/key.js"></script>
 
-<!-- Custom JS -->
 <script>
     $(document).ready(function () {
+        const accessToken = MAPBOX_API_KEY;
+
         mapboxgl.accessToken = MAPBOX_API_KEY;
 
         const map = new mapboxgl.Map({
@@ -48,20 +49,17 @@
         marker.setLngLat([-98.39431149232223, 29.511011025394158]);
         marker.addTo(map);
 
+        function pinThatAddress(address) {
+            geocode(address, MAPBOX_API_KEY)
+                .then(function (address) {
+                    const marker = new mapboxgl.Marker();
+                    marker.setLngLat(address);
+                    marker.addTo(map);
+                });
+        }
+
+        pinThatAddress('Rackspace');
     });
-
-    function pinThatAddress(address) {
-        geocode(address, MAPBOX_API_KEY).then(function(result) {
-            const marker = new mapboxgl.Marker();
-            marker.setLngLat(result);
-            marker.addTo(map);
-        }).catch(function (error){
-            console.log("error");
-        });
-    }
-
-    pinThatAddress("Alamo");
-
 </script>
 </body>
 </html>
