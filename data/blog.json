@@ -16,5 +16,12 @@
             "sugar"
         ],
         "date": "February 14, 2015"
-    }
+    }, {
+    "title": "The Third Post",
+    "content": "Hake ipsum dolor sit amet, round and liner adipisicing elit. Wash and angular wash architecto cum debitis delectus enim error fugiat hic iusto molestiae, numquam odio quibusdam, quis quisquam quod ratione repudiandae saepe sit suscipit ut, veritatis. At dolores est hic modi molestias ullam! A ad aliquid dolorem doloremque error illo, ipsam nisi obcaecati quas.",
+    "categories": [
+        "paint brushes"
+    ],
+    "date": "December 7, 1349"
+}
 ]
