@@ -29,6 +29,19 @@
 
                 //add html and style
 
+
+
+                for (let i = 0; i < data.length; i++) {
+
+                    $("#posts").append('<div class="postsContainer">')
+
+                    for (let j = 0; j < data.length; j++) {
+                        $("#posts").append(`<div class="title" id ="title-${[i+1]}">${data[i].title}</div>`);
+
+                        $("#posts").append(`<div class="content" id ="content-${[i+1]}">${data[i].content}</div>`);
+                    }
+                }
+
                 // for (let i = 0; i < data.length; i++) {
                 //     $("#insertProducts").append("<tr class='trCLass'><td>" + data[i].title + "</td><td>" + data[i].quantity + "</td><td>" + data[i].price + "</td><td>" + data[i].categories + "</td></tr>");
                 // }
