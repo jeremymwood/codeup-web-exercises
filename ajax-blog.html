@@ -11,11 +11,7 @@
 </head>
 <body class="p-3">
     <h1>ajax-blog</h1>
-    <div id="posts">
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aperiam illum ipsa minus molestiae obcaecati pariatur, perspiciatis reprehenderit tempora tenetur!
-        </p>
-    </div>
+    <div id="posts"></div>
 
     <script src="js/jquery-3.6.3.js"></script>
 
@@ -24,6 +20,15 @@
             "use strict";
 
             $.ajax("data/blog.json").done(function(data) {
+
+                // title
+                // content
+                // categories
+                // date
+                // div id #posts
+
+                //add html and style
+
                 // for (let i = 0; i < data.length; i++) {
                 //     $("#insertProducts").append("<tr class='trCLass'><td>" + data[i].title + "</td><td>" + data[i].quantity + "</td><td>" + data[i].price + "</td><td>" + data[i].categories + "</td></tr>");
                 // }
