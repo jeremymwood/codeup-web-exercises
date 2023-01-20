@@ -25,6 +25,11 @@
 
 <!-- The HTML element that serves as the Mapbox container -->
 <div class="border border-2 border-white  rounded-3" id='map'></div>
+<div class="buttonContainer d-flex justify-content-between">
+    <button type="button" id="zoom-5" class="zoomBtn border border-2 border-light btn btn-secondary mt-3 px-3">Zoom 5</button>
+    <button type="button" id="zoom-10" class="zoomBtn border border-2 border-light btn btn-secondary mt-3 px-3">Zoom 10</button>
+    <button type="button" id="zoom-15" class="zoomBtn border border-2 border-light btn btn-secondary mt-3 px-3">Zoom 15</button>
+</div>
 
 <!-- Mapbox JS -->
 <script src='https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.js'></script>
@@ -33,8 +38,53 @@
 <script src="js/key.js"></script>
 
 <script>
+    // $(document).ready(function () {
+    //     const accessToken = MAPBOX_API_KEY;
+    //
+    //     mapboxgl.accessToken = MAPBOX_API_KEY;
+    //
+    //     const map = new mapboxgl.Map({
+    //         container: 'map',
+    //         style: 'mapbox://styles/mapbox/dark-v10',
+    //         zoom: 10,
+    //         center: [-98.39431149232223, 29.511011025394158]
+    //     })
+    //
+    //     const marker = new mapboxgl.Marker();
+    //     marker.setLngLat([-98.39431149232223, 29.511011025394158]);
+    //     marker.addTo(map);
+    //
+    //     function pinThatAddress(address) {
+    //         geocode(address, MAPBOX_API_KEY)
+    //             .then(function (address) {
+    //                 const marker = new mapboxgl.Marker();
+    //                 marker.setLngLat(address);
+    //                 marker.addTo(map);
+    //             });
+    //     }
+    //
+    //     //create loop
+    //     //set init time
+    //     //set duration between
+    //     //create array of locations
+    //     setTimeout(()=> {
+    //         pinThatAddress('alamo heights');
+    //         },100);
+    //     setTimeout(()=> {
+    //         pinThatAddress('kirby');
+    //         },200);
+    //     setTimeout(()=> {
+    //         pinThatAddress('converse');
+    //         },300);
+    //     setTimeout(()=> {
+    //         pinThatAddress('schertz');
+    //         },400);
+    // });
+
+
     $(document).ready(function () {
-        const accessToken = MAPBOX_API_KEY;
+        // const accessToken = MAPBOX_API_KEY;
+        // const ericksTacos = "-98.40105750025616, 29.55630792947087";
 
         mapboxgl.accessToken = MAPBOX_API_KEY;
 
@@ -42,24 +92,58 @@
             container: 'map',
             style: 'mapbox://styles/mapbox/dark-v10',
             zoom: 10,
-            center: [-98.39431149232223, 29.511011025394158]
+            center: [-98.40105750025616, 29.55630792947087]
         })
 
         const marker = new mapboxgl.Marker();
-        marker.setLngLat([-98.39431149232223, 29.511011025394158]);
+        marker.setLngLat([-98.40105750025616, 29.55630792947087]);
         marker.addTo(map);
 
         function pinThatAddress(address) {
-            geocode(address, MAPBOX_API_KEY)
-                .then(function (address) {
-                    const marker = new mapboxgl.Marker();
-                    marker.setLngLat(address);
-                    marker.addTo(map);
-                });
+            geocode(address, MAPBOX_API_KEY).then(function (address) {
+                const popup = new mapboxgl.Popup()
+                    .setHTML(address.popupHTML);
+
+                // var marker = new mapboxgl.Marker()
+
+                const marker = new mapboxgl.Marker();
+                    // .setLngLat(coordinates)
+                    // .addTo(map)
+                    // .setPopup(map);
+                marker.setLngLat(address);
+                marker.addTo(map);
+                // popup.addTo(map);
+            });
         }
 
-        pinThatAddress('Rackspace');
+        // const popup = new mapboxgl.Popup()
+        //     .setLngLat([-98.40105750025616, 29.55630792947087])
+        //     .setHTML("<p class='bg-warning'>Erick's Tacos!</p>").setHTML("<p class='bg-warning'>Erick's Tacos!</p>")
+        //     .addTo(map)
+        //
+        // $("div.mapboxg1-popup").addClass("bg-primary");
+        //
+        // $(".content").addClass("pb-5");
+
+
+        //create loop
+        //set init time
+        //set duration between
+        //create array of locations
+        setTimeout(()=> {
+            pinThatAddress('alamo heights');
+            },200);
+        setTimeout(()=> {
+            pinThatAddress('kirby');
+            },300);
+        setTimeout(()=> {
+            pinThatAddress('converse');
+            },400);
+        setTimeout(()=> {
+            pinThatAddress('schertz');
+            },500);
     });
+
 </script>
 </body>
 </html>
