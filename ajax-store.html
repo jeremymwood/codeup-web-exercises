@@ -47,24 +47,47 @@
     // TODO: Take the data from inventory.json and append it to the products table
     //       HINT: Your data should come back as a JSON object; use console.log() to inspect
 
-    $.ajax("data/inventory.json").done(function(data) {
-        // iterate over the data array
-        // and print out each thing
-        // console.log(data);
+    const fetchTools = function () {
+        $.ajax("data/inventory.json").done(function(data) {
 
-        //could probably clean this up
-        for (let i = 0; i < data.length; i++) {
-            $("#insertProducts").append("<tr class='trCLass'><td>" + data[i].title + "</td><td>" + data[i].quantity + "</td><td>" + data[i].price + "</td><td>" + data[i].categories + "</td></tr>");
-        }
+            //initialize variable outside scope
+            let htmlString = "";
 
-        $(document).ready(function() {
-        $(".trCLass:even").css("background-color", "lightgrey");
-        });
+            //build a table row string from the tools in data
+            for (let i = 0; i < data.length; i++) {
+                const tool = data[i];
+                htmlString += `
+                        <tr class='trCLass'>
+                            <td>${tool.title}</td>
+                            <td>${tool.quantity}</td>
+                            <td>${tool.price}</td>
+                            <td>${tool.categories}</td>
+                        </tr>
+                    `;
+                //replace the html in #insertProducts
+                $("#insertProducts").html(htmlString);
+
+            }
+
+            $(document).ready(function() {
+            $(".trCLass:even").css("background-color", "lightgrey");
+            });
 
 
-    }).fail(function(jqXhr, status, error) {
-            console.log("crap! "  + jqXhr.status)
-        });
+        })
+            //fail not necessary for local source
+            // .fail(function(jqXhr, status, error) {
+            //     console.log("crap! "  + jqXhr.status)
+            // })
+        ;
+    }
+
+    fetchTools();
+
+    $("#jsonRefresh").click(function () {
+        console.log("working");
+        fetchTools();
+    })
 
         // $("#jsonRefresh").click(function() {
         //     // console.log("refreshed")
