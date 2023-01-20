@@ -17,6 +17,12 @@
             width: 100%;
             height: 500px;
         }
+        .mapboxgl-ctrl-logo, .mapboxgl-ctrl {
+            opacity: 20%;
+        }
+        .mapboxgl-ctrl-logo, .mapboxgl-ctrl:hover {
+            opacity: 100%;
+        }
     </style>
 </head>
 <body class="bg-dark m-3">
@@ -101,38 +107,25 @@
             // center: restaurants[0].latitude,restaurants[0].longitude
         });
 
-        const marker = new mapboxgl.Marker();
-        marker.setLngLat([-98.40105750025616, 29.55630792947087]);
-        marker.addTo(map);
+        // const marker = new mapboxgl.Marker();
+        // marker.setLngLat([-98.40105750025616, 29.55630792947087]);
+        // marker.addTo(map);
 
-        function pinThatAddress(address) {
-            geocode(address, MAPBOX_API_KEY).then(function (address) {
-                const marker = new mapboxgl.Marker();
-                marker.setLngLat(address);
-                marker.addTo(map);
-            });
-        }
-
-        // const ericksTacos = new mapboxgl.Popup()
-        //     .setHTML(`
-        //         <p>${restaurants[0].name}</p>
-        //         <p>${restaurants[0].description}</p>
-        //     `)
-        //
-        // marker.setPopup(ericksTacos)
+        // function pinThatAddress(address) {
+        //     geocode(address, MAPBOX_API_KEY).then(function (address) {
+        //         const marker = new mapboxgl.Marker();
+        //         marker.setLngLat(address);
+        //         marker.addTo(map);
+        //     });
+        // }
 
         let htmlString = "";
         let popupMessage = "";
 
-        //build a table row string from the tools in data
-        for (let i = 0; i < restaurants.length; i++) {
-            const restaurant = restaurants[i];
-
-            popupMessage += new mapboxgl.Popup()
-                .setHTML(`
-                <p>${restaurant[i].name}</p>
-                <p>${restaurant[i].description}</p>
-            `)
+        restaurants.forEach(function (restaurant) {
+            const marker = new mapboxgl.Marker();
+            marker.setLngLat([restaurant.longitude, restaurant.latitude]);
+            marker.addTo(map);
 
             htmlString += `
                 <div class='restaurantList my-2 p-2 border border-2 border-white rounded-3'>
@@ -144,8 +137,24 @@
                     `;
             $(".restaurants").html(htmlString);
 
+            popopupMessage += new mapboxgl.Popup()
+                .setHTML(`
+                    <p>${restaurant. name}</p>
+                    <p>${restaurant.description}</p>
+                `)
+
             marker.setPopup(popupMessage)
-        }
+        });
+
+
+
+            // popupMessage += new mapboxgl.Popup()
+            //     .setHTML(`
+            //     <p>${restaurant[i].name}</p>
+            //     <p>${restaurant[i].description}</p>
+            // `)
+
+            // marker.setPopup(popupMessage)
 
         //create loop
         //set init time
