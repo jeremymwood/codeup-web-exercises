@@ -41,7 +41,6 @@
 <script>
     $(document).ready(function () {
         // const accessToken = MAPBOX_API_KEY;
-        // const ericksTacos = ", ";
 
         const restaurants = [
             {
@@ -114,25 +113,27 @@
             });
         }
 
-        const ericksTacos = new mapboxgl.Popup()
-            .setHTML("<p>Erick's Tacos!</p>")
-
-        marker.setPopup(ericksTacos)
-
-        map.addControl(new mapboxgl.NavigationControl());
-
-        // for (let i = 0; i < restaurants.length; i++) {
-        //     // ${".restaurants"}.html(`<p>Name: ${restaurants[i].name}</p>`);
-        //     console.log(`Name: ${restaurants[i].name}`);
-        //     console.log(`Latitude: ${restaurants[i].latitude}`);
-        //     console.log(`Longitude: ${restaurants[i].longitude}`);
-        // }
+        // const ericksTacos = new mapboxgl.Popup()
+        //     .setHTML(`
+        //         <p>${restaurants[0].name}</p>
+        //         <p>${restaurants[0].description}</p>
+        //     `)
+        //
+        // marker.setPopup(ericksTacos)
 
         let htmlString = "";
+        let popupMessage = "";
 
         //build a table row string from the tools in data
         for (let i = 0; i < restaurants.length; i++) {
             const restaurant = restaurants[i];
+
+            popupMessage += new mapboxgl.Popup()
+                .setHTML(`
+                <p>${restaurant[i].name}</p>
+                <p>${restaurant[i].description}</p>
+            `)
+
             htmlString += `
                 <div class='restaurantList my-2 p-2 border border-2 border-white rounded-3'>
                     <p class="text-white fs-4">${restaurant.name}:</p>
@@ -142,15 +143,17 @@
                 </div>
                     `;
             $(".restaurants").html(htmlString);
+
+            marker.setPopup(popupMessage)
         }
 
         //create loop
         //set init time
         //set duration between
         //create array of locations
-        // setTimeout(()=> {
-        //     pinThatAddress('alamo heights');
-        //     },200);
+        setTimeout(()=> {
+            pinThatAddress('alamo heights');
+            },200);
         // setTimeout(()=> {
         //     pinThatAddress('kirby');
         //     },300);
@@ -160,6 +163,8 @@
         // setTimeout(()=> {
         //     pinThatAddress('schertz');
         //     },500);
+
+        map.addControl(new mapboxgl.NavigationControl());
     });
 
 </script>
