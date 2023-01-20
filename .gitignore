@@ -2,4 +2,4 @@
 .idea
 *.iml
 
-keys.js
+js/keys.js
