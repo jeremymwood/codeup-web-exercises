@@ -10,7 +10,7 @@
     <script src="https://kit.fontawesome.com/4d0b40d330.js" crossorigin="anonymous"></script>
 </head>
 <body class="p-3">
-    <h1>ajax-blog</h1>
+    <h1 class="pb-3">ajax-blog</h1>
     <div id="posts"></div>
 
     <script src="js/jquery-3.6.3.js"></script>
@@ -21,8 +21,6 @@
 
             $.ajax("data/blog.json").done(function(data) {
 
-                // title
-                // content
                 // categories
                 // date
                 // div id #posts
@@ -33,14 +31,28 @@
 
                 for (let i = 0; i < data.length; i++) {
 
-                    $("#posts").append('<div class="postsContainer">')
+                    //why wont this loop?
+                    // $("#posts").append(`<div class="postContainer" id="container-${[i+1]}">`);
+                    //
+                    // $("#posts").append(`<div class="title" id ="title-${[i+1]}">${data[i].title}</div>`);
+                    //
+                    // $("#posts").append(`<div class="content" id ="content-${[i+1]}">${data[i].content}</div>`);
+                    //
+                    // $("#posts").append(`</div>`);
 
-                    for (let j = 0; j < data.length; j++) {
-                        $("#posts").append(`<div class="title" id ="title-${[i+1]}">${data[i].title}</div>`);
 
-                        $("#posts").append(`<div class="content" id ="content-${[i+1]}">${data[i].content}</div>`);
-                    }
+                    $("#posts").append(`<div class="title" id ="title-${[i+1]}">${data[i].title}</div>`);
+
+                    $("#posts").append(`<div class="date" id ="date-${[i+1]}">${data[i].date}</div>`);
+
+                    $("#posts").append(`<div class="categories" id ="category-${[i+1]}">(${data[i].categories})</div>`);
+
+                    $("#posts").append(`<div class="content" id ="content-${[i+1]}">${data[i].content}</div>`);
+
                 }
+
+                $(".content").addClass("pb-5");
+                $(".categories").addClass("pb-2");
 
                 // for (let i = 0; i < data.length; i++) {
                 //     $("#insertProducts").append("<tr class='trCLass'><td>" + data[i].title + "</td><td>" + data[i].quantity + "</td><td>" + data[i].price + "</td><td>" + data[i].categories + "</td></tr>");
