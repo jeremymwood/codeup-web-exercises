@@ -92,7 +92,7 @@
                 "latitude": "29.414577442153725",
                 "longitude": "-98.48882320029072",
                 "description": "Local standby dishing up homestyle Mexican eats in colorful, modest surroundings with a large patio.",
-                "image": "cascabel"
+                "image": "cascabel.webp"
         },
 
             // {
@@ -115,13 +115,12 @@
 
         mapboxgl.accessToken = MAPBOX_API_KEY;
 
-        //zoom to, fly too selectors
+        //TODO: zoom to, fly too selectors
         let zoomFactor = 10;
             // console.log(`zoomFactor default: ${zoomFactor}`);
 
-        //add lat centroid for zoom center
-        //possible to create bounding box?
-        // add boot strap incremented slider
+        //TODO: possible to create bounding box?
+        //TODO: add boot strap incremented slider
 
         $("#zoom-5").click(function () {
             zoomFactor = 5;
@@ -162,6 +161,7 @@
             // center: restaurants[0].latitude,restaurants[0].longitude
         });
 
+        //TODO: add centroid marker on hover
         // const marker = new mapboxgl.Marker();
         // marker.setLngLat([-98.40105750025616, 29.55630792947087]);
         // marker.addTo(map);
@@ -169,8 +169,23 @@
         // let htmlString = "";
         // let popupMessage = "";
 
+                // function pinThatAddress(address) {
+                //     geocode(address, MAPBOX_API_KEY).then(function (address) {
+                //         const marker = new mapboxgl.Marker();
+                //         marker.setLngLat(address);
+                //         marker.addTo(map);
+                //     });
+                // }
 
-        //would like to crop card img to 16x9
+                //TODO: create loop
+                //set init time
+                //set duration between
+                //create array of locations
+                // setTimeout(()=> {
+                //     pinThatAddress('alamo heights');
+                //     },500);
+
+        //TODO: would like to crop card img to 16x9
         restaurants.forEach(function (restaurant) {
             const popup = new mapboxgl.Popup()
             .setHTML(`
@@ -190,6 +205,21 @@
 
             marker.setPopup(popup);
 
+            // TODO: add custom markers
+            //centroid:
+            //add hover and scaling
+            // <i className="fa-solid fa-circle-xmark"></i>
+            //location dot
+            // <i className="fa-sharp fa-solid fa-utensils"></i>
+            //stars
+            // <i className="fa-solid fa-star"></i>
+            // <i className="fa-solid fa-star-half-stroke"></i>
+            // <i className="fa-regular fa-star"></i>
+            //search
+            // <i className="fa-sharp fa-solid fa-magnifying-glass"></i>
+
+
+
             //call function described below
             // makePinForRestaurant(restaurant)
 
@@ -205,7 +235,7 @@
             // $(".restaurants").html(htmlString);
         });
 
-        //class doesn't add
+        //TODO: class doesn't add
         // $("div.mapboxgl-popup-content").addClass("d-flex");
 
         // makePinForRestaurant(
@@ -218,7 +248,7 @@
         //     });
         // }
 
-        //create loop
+        //TODO: create loop
         //set init time
         //set duration between
         //create array of locations
@@ -234,7 +264,7 @@
         // setTimeout(()=> {
         //     pinThatAddress('schertz');
         //     },500);
-
+        //TODO: add buttons and/or slider
         map.addControl(new mapboxgl.NavigationControl());
     });
 
