@@ -93,7 +93,7 @@
                 "longitude": "-98.48882320029072",
                 "description": "Local standby dishing up homestyle Mexican eats in colorful, modest surroundings with a large patio.",
                 "image": "cascabel.webp"
-        },
+            },
 
             // {
             //     "name": "name",
@@ -199,6 +199,7 @@
 
             `);
 
+
             const marker = new mapboxgl.Marker({"color": "red"});
             marker.setLngLat([restaurant.longitude, restaurant.latitude]);
             marker.addTo(map);
@@ -235,6 +236,23 @@
             // $(".restaurants").html(htmlString);
         });
 
+        //replace marker with x
+
+        // const centroidIcon = document.createElement('<i className="fa-solid fa-circle-xmark"></i>');
+        const centroidMarker = new mapboxgl.Marker();
+        centroidMarker.setLngLat(centroid);
+        centroidMarker.addTo(map);
+
+        //returning selected html, not fly to location
+        $(".mapboxgl-marker").click(function () {
+            console.log("working");
+            console.log(this);
+            // console.log(this);
+            // map.flyTo({
+            //     center: e.features[0].geometry.coordinates
+            // });
+        })
+
         //TODO: class doesn't add
         // $("div.mapboxgl-popup-content").addClass("d-flex");
 
@@ -267,7 +285,6 @@
         //TODO: add buttons and/or slider
         map.addControl(new mapboxgl.NavigationControl());
     });
-
 </script>
 </body>
 </html>
