@@ -33,11 +33,11 @@
 <h1 class="text-white text-center pb-3">Jeremy's Favorite Restaurants</h1>
 
 <div class="border border-2 border-white rounded-3" id='map'></div>
-<!--<div class="buttonContainer d-flex">-->
-<!--    <button type="button" id="zoom-5" class="zoomBtn border border-2 border-light btn btn-secondary mt-3 px-3 flex-fill">Zoom 5</button>-->
-<!--    <button type="button" id="zoom-10" class="zoomBtn border border-2 border-light btn btn-secondary mt-3 px-3 flex-fill">Zoom 10</button>-->
-<!--    <button type="button" id="zoom-15" class="zoomBtn border border-2 border-light btn btn-secondary mt-3 px-3 flex-fill">Zoom 15</button>-->
-<!--</div>-->
+<div class="buttonContainer d-flex">
+    <button type="button" id="zoom-5" class="zoomBtn border border-2 border-light btn btn-secondary mt-3 px-3 flex-fill">Zoom 5</button>
+    <button type="button" id="zoom-10" class="zoomBtn border border-2 border-light btn btn-secondary mt-3 px-3 flex-fill">Zoom 10</button>
+    <button type="button" id="zoom-15" class="zoomBtn border border-2 border-light btn btn-secondary mt-3 px-3 flex-fill">Zoom 15</button>
+</div>
 <div class="restaurants"></div>
 
 
@@ -113,6 +113,26 @@
             zoomFactor = 15;
             // console.log(`zoomFactor ${zoomFactor}`);
         });
+
+        let lats = [];
+        let latsSum = 0;
+
+        for (let i = 0; i < restaurants.length; i++) {
+            lats.push(`${restaurants[i].latitude}`);
+            latsSum += parseFloat(restaurants[i].latitude);
+        }
+        const latsAvg = latsSum / restaurants.length;
+        console.log(latsAvg)
+
+
+        // restaurants.forEach(function (restaurant) {
+        //     lats.push(`${restaurant.latitude}`);
+        //     latsSum = latsSum + restaurant.latitude;
+        //     console.log(latsSum);
+        // });
+        // console.log(lats);
+
+
 
         const map = new mapboxgl.Map({
             container: 'map',
