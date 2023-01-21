@@ -79,8 +79,22 @@
                 "longitude": "-98.58451866614952",
                 "description": "Popular mainstay known for its ample breakfast options, plus a lunch menu served in homey surrounds.",
                 "image": "magnolia-pancakehauss.jpeg"
-
             },
+            {
+                "name": "Chama Gaúcha Brazilian Steakhouse",
+                "latitude": "29.61103906996938",
+                "longitude": "-98.49771628465706",
+                "description": "Upscale spot featuring all-you-can-eat tableside-carved Brazilian meat & a global wine list.",
+                "image": "chama-gaucha-food-2.jpg"
+            },
+            {
+                "name": "Cascabel Mexican Patio",
+                "latitude": "29.414577442153725",
+                "longitude": "-98.48882320029072",
+                "description": "Local standby dishing up homestyle Mexican eats in colorful, modest surroundings with a large patio.",
+                "image": "cascabel"
+        },
+
             // {
             //     "name": "name",
             //     "latitude": "latitude",
@@ -89,6 +103,14 @@
             //     "image": ""
 
         // },
+            // {
+            //     "name": "name",
+            //     "latitude": "latitude",
+            //     "longitude": "longitude",
+            //     "description": "description",
+            //     "image": ""
+
+        // }
         ]
 
         mapboxgl.accessToken = MAPBOX_API_KEY;
@@ -117,30 +139,26 @@
         });
 
         let lats = [];
+        let longs = [];
         let latsSum = 0;
+        let longsSum = 0;
 
         for (let i = 0; i < restaurants.length; i++) {
             lats.push(`${restaurants[i].latitude}`);
+            longs.push(`${restaurants[i].longitude}`);
             latsSum += parseFloat(restaurants[i].latitude);
+            longsSum += parseFloat(restaurants[i].longitude);
         }
+
         const latsAvg = latsSum / restaurants.length;
-        console.log(latsAvg)
-
-
-        // restaurants.forEach(function (restaurant) {
-        //     lats.push(`${restaurant.latitude}`);
-        //     latsSum = latsSum + restaurant.latitude;
-        //     console.log(latsSum);
-        // });
-        // console.log(lats);
-
-
+        const longsAvg = longsSum / restaurants.length;
+        const centroid = [longsAvg, latsAvg];
 
         const map = new mapboxgl.Map({
             container: 'map',
             style: 'mapbox://styles/mapbox/dark-v10',
             zoom: zoomFactor,
-            center: [-98.50883441005111, 29.546409654952484]
+            center: centroid
             // center: restaurants[0].latitude,restaurants[0].longitude
         });
 
