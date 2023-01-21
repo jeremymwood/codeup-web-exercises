@@ -23,6 +23,9 @@
         .mapboxgl-ctrl-logo, .mapboxgl-ctrl:hover {
             opacity: 100%;
         }
+        .mapboxgl-popup-content {
+            /*display: flex;*/
+        }
     </style>
 </head>
 <body class="bg-dark m-3">
@@ -36,6 +39,7 @@
 <!--    <button type="button" id="zoom-15" class="zoomBtn border border-2 border-light btn btn-secondary mt-3 px-3 flex-fill">Zoom 15</button>-->
 <!--</div>-->
 <div class="restaurants"></div>
+
 
 <!--can use form group , label and select-->
 
@@ -125,11 +129,19 @@
         // let htmlString = "";
         // let popupMessage = "";
 
+
+        //would like to crop card img to 16x9
         restaurants.forEach(function (restaurant) {
             const popup = new mapboxgl.Popup()
             .setHTML(`
-                    <p>${restaurant.name}</p>
-                    <p>${restaurant.description}</p>
+                <div class="card w-100">
+                      <img src="image/${restaurant.image}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="fs-6">${restaurant.name}</p>
+                        <p class="card-text">${restaurant.description}</p>
+                    </div>
+                </div>
+
             `);
 
             const marker = new mapboxgl.Marker({"color": "red"});
@@ -152,6 +164,9 @@
             //         `;
             // $(".restaurants").html(htmlString);
         });
+
+        //class doesn't add
+        // $("div.mapboxgl-popup-content").addClass("d-flex");
 
         // makePinForRestaurant(
 
