@@ -30,21 +30,19 @@
 </head>
 <body class="bg-dark m-3">
 
-<h1 class="text-white text-center pb-3">Jeremy's Favorite Restaurants</h1>
+    <h1 class="text-white text-center pb-3">Jeremy's Favorite Restaurants</h1>
 
-<div class="border border-2 border-white rounded-3" id='map'></div>
-<div class="buttonContainer d-flex">
-    <button type="button" id="zoom-5" class="zoomBtn border border-2 border-light btn btn-secondary mt-3 px-3 flex-fill">Zoom 5</button>
-    <button type="button" id="zoom-10" class="zoomBtn border border-2 border-light btn btn-secondary mt-3 px-3 flex-fill">Zoom 10</button>
-    <button type="button" id="zoom-15" class="zoomBtn border border-2 border-light btn btn-secondary mt-3 px-3 flex-fill">Zoom 15</button>
-</div>
-<div class="restaurants"></div>
+    <div class="border border-2 border-white rounded-3" id='map'></div>
+    <div class="buttonContainer d-flex">
+        <button type="button" id="zoom-5" class="zoomBtn border border-2 border-light btn btn-secondary mt-3 px-3 flex-fill">Zoom 5</button>
+        <button type="button" id="zoom-10" class="zoomBtn border border-2 border-light btn btn-secondary mt-3 px-3 flex-fill">Zoom 10</button>
+        <button type="button" id="zoom-15" class="zoomBtn border border-2 border-light btn btn-secondary mt-3 px-3 flex-fill">Zoom 15</button>
+    </div>
+    <div class="restaurants"></div>
 
+    <!--TODO -->
+    <!--can use form group , label and select-->
 
-<!--can use form group , label and select-->
-
-
-<!-- Mapbox JS -->
 <script src='https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.js'></script>
 <script src='js/jquery-3.6.3.js'></script>
 <script src="js/mapbox-geocoder-utils.js"></script>
@@ -204,6 +202,13 @@
             marker.setLngLat([restaurant.longitude, restaurant.latitude]);
             marker.addTo(map);
 
+            //TODO: stagger display of markers on refresh
+            // let markerDurationInit = 400;
+            // const markerDurationIncrement = 100;
+            // setTimeout(()=> {
+            //     marker.addTo(map);
+            // },(markerDurationInit += markerDurationIncrement ));
+
             marker.setPopup(popup);
 
             // TODO: add custom markers
@@ -218,27 +223,19 @@
             // <i className="fa-regular fa-star"></i>
             //search
             // <i className="fa-sharp fa-solid fa-magnifying-glass"></i>
-
-
-
-            //call function described below
-            // makePinForRestaurant(restaurant)
-
-            // print cards of restaurants
-            // htmlString += `
-            //     <div class='restaurantList my-2 p-2 border border-2 border-white rounded-3'>
-            //         <p class="text-white fs-4">${restaurant.name}:</p>
-            //         <p class="text-white m-0">Lat: &nbsp&nbsp&nbsp&nbsp&nbsp${restaurant.latitude}</p>
-            //         <p class="text-white m-0">Long: ${restaurant.longitude}</p>
-            //         <p class="text-white m-0 pt-2">${restaurant.description}</p>
-            //     </div>
-            //         `;
-            // $(".restaurants").html(htmlString);
         });
 
         //replace marker with x
 
         // const centroidIcon = document.createElement('<i className="fa-solid fa-circle-xmark"></i>');
+        // centroidIcon.className = 'marker';
+
+        // const width = marker.properties.iconSize[0];
+        // const height = marker.properties.iconSize[1];
+        // centroidIcon.style.width = `${width}px`;
+        // centroidIcon.style.height = `${height}px`;
+        // centroidIcon.style.backgroundSize = '100%';
+
         const centroidMarker = new mapboxgl.Marker();
         centroidMarker.setLngLat(centroid);
         centroidMarker.addTo(map);
