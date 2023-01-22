@@ -33,7 +33,7 @@
             opacity: 100%;
         }
         .fa-icon {
-
+            /*TODO: add hover and scaling*/
         }
     </style>
 </head>
@@ -49,8 +49,7 @@
     </div>
     <div class="restaurants"></div>
 
-    <!--TODO -->
-    <!--can use form group , label and select-->
+<!--    TODO: form group , label and select-->
 
 <script src='https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.js'></script>
 <script src='js/jquery-3.6.3.js'></script>
@@ -59,11 +58,7 @@
 
 <script>
     $(document).ready(function () {
-        // const accessToken = MAPBOX_API_KEY;
-
-        //add ratings and font awesome stars
-
-        //try moving to json file?
+        // TODO: move to json
         const restaurants = [
             {
                 "name": "Erick's Tacos",
@@ -108,6 +103,7 @@
             //     "longitude": "longitude",
             //     "description": "description",
             //     "image": ""
+            // TODO: add stars
 
         // },
             // {
@@ -126,8 +122,9 @@
         let zoomFactor = 10;
             // console.log(`zoomFactor default: ${zoomFactor}`);
 
-        //TODO: possible to create bounding box?
-        //TODO: add bootstrap incremented slider
+        //TODO: marker bounding box
+        //TODO: zoom buttons
+        //TODO: bootstrap incremented slider
 
         $("#zoom-5").click(function () {
             zoomFactor = 5;
@@ -161,6 +158,7 @@
         const longsAvg = longsSum / restaurants.length;
         const centroid = [longsAvg, latsAvg];
 
+        //create map
         const map = new mapboxgl.Map({
             container: 'map',
             style: 'mapbox://styles/mapbox/dark-v10',
@@ -168,19 +166,32 @@
             center: centroid
         });
 
-        // let htmlString = "";
-        // let popupMessage = "";
 
-                // function pinThatAddress(address) {
-                //     geocode(address, MAPBOX_API_KEY).then(function (address) {
-                //         const marker = new mapboxgl.Marker();
-                //         marker.setLngLat(address);
-                //         marker.addTo(map);
-                //     });
-                // }
-
-        //TODO: would like to crop card img to 16x9
+        // let markerDurationInit = 200;
+        // const markerDurationIncrement = 0;
+        // for (let i = 0; i < restaurants.length; i++) {
+        //     const testMarker = new mapboxgl.Marker();
+        //     testMarker.setLngLat([restaurants.longitude, restaurants.latitude]);
+        //     testMarker.addTo(map);
+        //
+        //     setTimeout(()=> {
+        //         testMarker.addTo(map);
+        //     },(markerDurationInit += markerDurationIncrement ));
+        // }
+        //
+        //TODO: crop card img to 16x9
         restaurants.forEach(function (restaurant) {
+
+            const marker = new mapboxgl.Marker({"color": "red"});
+            marker.setLngLat([restaurant.longitude, restaurant.latitude]);
+
+            // //TODO: stagger display of markers on refresh
+            let markerDurationInit = 200;
+            const markerDurationIncrement = 0;
+            setTimeout(()=> {
+                marker.addTo(map);
+            },(markerDurationInit += markerDurationIncrement ));
+
             const popup = new mapboxgl.Popup()
             .setHTML(`
                 <div class="card w-100">
@@ -193,43 +204,16 @@
 
             `);
 
-
-            const marker = new mapboxgl.Marker({"color": "red"});
-            marker.setLngLat([restaurant.longitude, restaurant.latitude]);
-            marker.addTo(map);
-
-            //TODO: stagger display of markers on refresh
-            // let markerDurationInit = 400;
-            // const markerDurationIncrement = 100;
-            // setTimeout(()=> {
-            //     marker.addTo(map);
-            // },(markerDurationInit += markerDurationIncrement ));
-
             marker.setPopup(popup);
 
-            // TODO: add custom markers
-            //add hover and scaling
+            // TODO: custom markers
             // <i className="fa-solid fa-circle-xmark"></i>
-            //location dot
             // <i className="fa-sharp fa-solid fa-utensils"></i>
-            //stars
             // <i className="fa-solid fa-star"></i>
             // <i className="fa-solid fa-star-half-stroke"></i>
             // <i className="fa-regular fa-star"></i>
-            //search
             // <i className="fa-sharp fa-solid fa-magnifying-glass"></i>
         });
-
-        //replace marker with x
-
-        // const centroidIcon = document.createElement('<i className="fa-solid fa-circle-xmark"></i>');
-        // centroidIcon.className = 'marker';
-
-        // const width = marker.properties.iconSize[0];
-        // const height = marker.properties.iconSize[1];
-        // centroidIcon.style.width = `${width}px`;
-        // centroidIcon.style.height = `${height}px`;
-        // centroidIcon.style.backgroundSize = '100%';
 
         //TODO: add hover
         //todo start with replacing with image
@@ -248,18 +232,18 @@
             // });
         })
 
+
+
         //TODO: class doesn't add
-        // $("div.mapboxgl-popup-content").addClass("d-flex");
+            // $("div.mapboxgl-popup-content").addClass("d-flex");
 
-        // makePinForRestaurant(
-
-        // function pinThatAddress(address) {
-        //     geocode(address, MAPBOX_API_KEY).then(function (address) {
-        //         const marker = new mapboxgl.Marker();
-        //         marker.setLngLat(address);
-        //         marker.addTo(map);
-        //     });
-        // }
+            // function pinThatAddress(address) {
+            //     geocode(address, MAPBOX_API_KEY).then(function (address) {
+            //         const marker = new mapboxgl.Marker();
+            //         marker.setLngLat(address);
+            //         marker.addTo(map);
+            //     });
+            // }
         map.addControl(new mapboxgl.NavigationControl());
     });
 </script>
