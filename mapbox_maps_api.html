@@ -180,17 +180,17 @@
         // }
         //
         //TODO: crop card img to 16x9
-        restaurants.forEach(function (restaurant) {
+        restaurants.forEach(function (restaurant, index) {
 
             const marker = new mapboxgl.Marker({"color": "red"});
             marker.setLngLat([restaurant.longitude, restaurant.latitude]);
 
             // //TODO: stagger display of markers on refresh
-            let markerDurationInit = 200;
-            const markerDurationIncrement = 0;
+            let markerDurationInit = 400;
+            const markerDurationIncrement = 100;
             setTimeout(()=> {
                 marker.addTo(map);
-            },(markerDurationInit += markerDurationIncrement ));
+            },(markerDurationInit += index * markerDurationIncrement ));
 
             const popup = new mapboxgl.Popup()
             .setHTML(`
@@ -201,7 +201,6 @@
                         <p class="card-text">${restaurant.description}</p>
                     </div>
                 </div>
-
             `);
 
             marker.setPopup(popup);
