@@ -187,7 +187,7 @@
 
             // //TODO: stagger display of markers on refresh
             let markerDurationInit = 400;
-            const markerDurationIncrement = 100;
+            const markerDurationIncrement = 200;
             setTimeout(()=> {
                 marker.addTo(map);
             },(markerDurationInit += index * markerDurationIncrement ));
@@ -215,8 +215,19 @@
         });
 
         //TODO: add hover
-        //todo start with replacing with image
+        //TODO: start with replacing with image
         // <i className="fa-solid fa-circle-xmark"></i>
+        // const centroidMarker = document.createElement('div');
+        // centroidMarker.setAttribute("id", "centroidId");
+        // $('#centroidId').innerHTML = '<i className="fa-solid fa-circle-xmark"></i>';
+
+        // centroidMarker.children.innerHTML = '<i className="fa-solid fa-circle-xmark"></i>';
+        // centroidMarker.innerText = 'new div';
+        // new mapboxgl.Marker(centroidMarker)
+        // .setLngLat(centroid);
+        // .addTo(map);
+
+        //generic marker
         const centroidMarker = new mapboxgl.Marker();
         centroidMarker.setLngLat(centroid);
         centroidMarker.addTo(map);
