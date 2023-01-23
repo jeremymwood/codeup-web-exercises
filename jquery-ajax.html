@@ -175,7 +175,20 @@
     // show JSON equivalent
 
     // use imperial units
-
+    //will need to convert unix time
+    //use draggable marker to update forecast
+    // or dblclick on map
+    $.get("http://api.openweathermap.org/data/2.5/onecall", {
+        APPID: OPENWEATHER_API_KEY,
+        lat:    29.423017,
+        lon:   -98.48527,
+        units: "imperial"
+    }).done(function(data) {
+        console.log(data)
+        // console.log('The entire response:', data);
+        // console.log('Diving in - here is current information: ', data.current);
+        // console.log('A step further - information for tomorrow: ', data.daily[1]);
+    });
     // no cors problems THANK GOD!
 
 
