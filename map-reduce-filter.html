@@ -55,13 +55,13 @@
             }
         ];
 
-        const languagesArray = people.filter(function (person) {
-            if (person.age >= 55) {
+        const languagesArray = users.filter(function (user) {
+            if (user.languages.length >= 3) {
                 return true;
             } else {
                 return false;
             }
-        });
+        }, Number.NEGATIVE_INFINITY);
 
         console.log(languagesArray);
 
