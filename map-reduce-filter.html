@@ -109,7 +109,7 @@
                 return aggregate += `, ${user.name}`;
             }
             console.log(`Appended Instructor String: "${aggregate}"`);
-        },  "");
+        }, "");
         console.log(instructorString);
         // console.log(instructorStringOutput);
         // Use .reduce to get the unique list of languages from the list of users.
@@ -119,7 +119,7 @@
             } else {
                 return aggregate += `,${user.languages}`;
             }
-        },  "");
+        }, "");
         console.log(allLanguagesString);
         console.log(typeof allLanguagesString)
 
@@ -139,7 +139,13 @@
             return wordCountObject;
         }
 
-        countWords(allLanguagesString);
+        let languagesObject = countWords(allLanguagesString);
+        console.log(typeof languagesObject);
+        console.log(languagesObject);
+
+        const listPropertyNames = Object.keys(languagesObject);
+        console.log(listPropertyNames.join());
+
 
 
     })();
