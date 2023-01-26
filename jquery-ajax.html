@@ -177,18 +177,27 @@
     // use imperial units
     //will need to convert unix time
     //use draggable marker to update forecast
+    //drag end event listener for marker
     // or dblclick on map
-    $.get("http://api.openweathermap.org/data/2.5/onecall", {
-        APPID: OPENWEATHER_API_KEY,
-        lat:    29.423017,
-        lon:   -98.48527,
-        units: "imperial"
-    }).done(function(data) {
-        console.log(data)
-        // console.log('The entire response:', data);
-        // console.log('Diving in - here is current information: ', data.current);
-        // console.log('A step further - information for tomorrow: ', data.daily[1]);
-    });
+    //dropdown for map themes, or light/dark mode
+    //use reverse geocode for city and state
+
+    // TODO:
+    // play with openweather api
+    // get mapbox starter map
+    // make a function for fetching 5 day forecast
+
+    // $.get("http://api.openweathermap.org/data/2.5/onecall", {
+    //     APPID: OPENWEATHER_API_KEY,
+    //     lat:    29.423017,
+    //     lon:   -98.48527,
+    //     units: "imperial"
+    // }).done(function(data) {
+    //     console.log(data)
+    //     // console.log('The entire response:', data);
+    //     // console.log('Diving in - here is current information: ', data.current);
+    //     // console.log('A step further - information for tomorrow: ', data.daily[1]);
+    // });
     // no cors problems THANK GOD!
 
 
