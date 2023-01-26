@@ -45,8 +45,17 @@
             },
         ]
         // first let's see what is produced in a raw state
+        //
+        // let html = "";
+        // tools.forEach(function (tool) {
+        //     html += `<li>${tool.name}</li>`
+        // })
 
-
+        let htmlArray = tools.map(function (tool) {
+            return `<li>${tool.name}</li>`;
+        })
+        console.log(htmlArray);
+        document.querySelector("#my-ul").innerHTML = htmlArray.join("");
 
         // reduce
         // REMEMBER: RETURNS A SINGLE VALUE (can be a JS primitive or object, etc.)
@@ -58,6 +67,21 @@
 
         // for reduce, the function is how it modifies the single value per element
         // and the 2nd argument to reduce is the INITIAL VALUE of the single value
+        const sum = testGrades.reduce(function (mySum, grade) {
+            return mySum + grade;
+        }, 0);
+
+        console.log(`Avg: ${sum / testGrades.length}`);
+
+        const highestGrade = testGrades.reduce(function (highestGradeSoFar, grade){
+            if (grade > highestGradeSoFar) {
+                return grade
+            } else {
+                return highestGradeSoFar;
+            }
+        }, Number.NEGATIVE_INFINITY);
+
+        console.log(`Highest Grade: ${highestGrade}`);
 
 
         // filter
@@ -86,6 +110,15 @@
             }
         ]
 
+        const lubysDudes = people.filter(function (person) {
+            if (person.age >= 55) {
+                return true;
+            } else {
+                return false;
+            }
+        });
+
+        console.log(lubysDudes);
 
     })();
 </script>
