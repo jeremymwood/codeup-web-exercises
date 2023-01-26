@@ -19,6 +19,13 @@
 
         const users = [
             {
+                id: 4,
+                name: 'fernando',
+                email: 'fernando@codeup.com',
+                languages: ['java', 'php', 'sql'],
+                yearsOfExperience: 8
+            },
+            {
                 id: 1,
                 name: 'ryan',
                 email: 'ryan@codeup.com',
@@ -40,13 +47,6 @@
                 yearsOfExperience: 7
             },
             {
-                id: 4,
-                name: 'fernando',
-                email: 'fernando@codeup.com',
-                languages: ['java', 'php', 'sql'],
-                yearsOfExperience: 8
-            },
-            {
                 id: 5,
                 name: 'justin',
                 email: 'justin@codeup.com',
@@ -55,6 +55,10 @@
             }
         ];
 
+        //todo
+        // Create a file named map-filter-reduce.js in your js directory and copy the users data below into it.
+        //     Use .filter to create an array of user objects where each user object has at least 3 languages in the languages array.
+
         const languagesArray = users.filter(function (user) {
             if (user.languages.length >= 3) {
                 return true;
@@ -62,8 +66,53 @@
                 return false;
             }
         }, Number.NEGATIVE_INFINITY);
-
         console.log(languagesArray);
+
+        // Use .map to create an array of strings where each element is a user's email address
+        const emailArray = users.map(function (user) {
+            return user.email;
+        }, Number.NEGATIVE_INFINITY);
+        console.log(emailArray);
+        console.log(typeof emailArray[0]);
+
+        // Use .reduce to get the total years of experience from the list of users. Once you get the total of years you can use the result to calculate the average.
+        const sumYearsOfExperience = users.reduce((sumYears, user) => {
+            return sumYears + user.yearsOfExperience;
+        }, 0);
+        console.log(sumYearsOfExperience);
+
+        // Use .reduce to get the longest email from the list of users.
+        const longestEmail = users.reduce((highestEmail, currentUser) => {
+            // console.log(typeof highestEmail);
+            // console.log(highestEmail);
+            // console.log(`On deck: ${currentUser.email}`);
+            if (highestEmail.length < currentUser.email.length) {
+
+                // console.log(`${currentUser.email} PREVAILS`);
+                return highestEmail = currentUser.email;
+            } else {
+                // console.log(`${currentUser.email} FAILS`);
+                return highestEmail;
+            }
+            console.log(`${highestEmail} is WINS`)
+        }, "");
+        console.log(longestEmail);
+        // Use .reduce to get the list of user's names in a single string. Example: Your instructors are: ryan, luis, zach, fernando, justin.
+        const instructorString = users.reduce((aggregate, user) => {
+            if (aggregate === "") {
+                // console.log(`"${aggregate}"`);
+                // console.log(`New Aggregate: "${user.name}"`);
+                return aggregate = user.name;
+            } else {
+                // console.log(`"${aggregate}"`);
+                // console.log(`Current Instructor String: "${aggregate}"`);
+                return aggregate += `, ${user.name}`;
+            }
+            console.log(`Appended Instructor String: "${aggregate}"`);
+        },  "");
+        console.log(instructorString);
+        // console.log(instructorStringOutput);
+        // Use .reduce to get the unique list of languages from the list of users.
 
 
     })();
