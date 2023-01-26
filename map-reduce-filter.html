@@ -113,6 +113,33 @@
         console.log(instructorString);
         // console.log(instructorStringOutput);
         // Use .reduce to get the unique list of languages from the list of users.
+        const allLanguagesString = users.reduce((aggregate, user) => {
+            if (aggregate === "") {
+                return aggregate = user.languages;
+            } else {
+                return aggregate += `,${user.languages}`;
+            }
+        },  "");
+        console.log(allLanguagesString);
+        console.log(typeof allLanguagesString)
+
+        function countWords(collection) {
+            const words = collection.split(','); // transform a sentence into an array of words
+            const wordCountObject = words.reduce((wordCounts, word) => {
+                if (typeof wordCounts[word] === 'undefined') {
+                    // if the word is not yet present in our object, set it's value to 1
+                    wordCounts[word] = 1;
+                } else {
+                    // otherwise increment the existing count
+                    wordCounts[word] += 1;
+                }
+                return wordCounts;
+            }, {}); // start with an empty object
+            console.log(wordCountObject);
+            return wordCountObject;
+        }
+
+        countWords(allLanguagesString);
 
 
     })();
