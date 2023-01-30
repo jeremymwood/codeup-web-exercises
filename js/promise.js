@@ -2,11 +2,11 @@
 (function() {
     $(document).ready(function () {
 
-        fetch('data/docrob_github_events.json', {headers: {'Authorization': 'GITHUB_API_KEY'}})
+        fetch('data/docrob_github_events.json')
             .then(function (response) {
                 return response.json();
             }).then(function (data) {
-            console.log(data);
+            console.log(data[0].created_at);
         });
 
         // function getCommitDate(commitNumber) {
