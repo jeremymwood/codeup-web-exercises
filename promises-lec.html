@@ -21,13 +21,44 @@
         //  returns a promise
         // make a simple call and log the promise
         // it is NOT the data :(
-        let promise = fetch("docrob/data/inventory.json");
-        console.log(promise);
+        const promise1 = fetch("data/inventory.json");
+        // console.log(promise1);
 
         // explain simply what a promise is
         //  contains the current state of an asynchronous call
         //    starts as Pending and eventually can become resolved (success) or rejected (error)
         //    must use .then to handle resolved and .catch to handle rejected
+        //arrow function
+        // promise1.then(response => console.log("not ready"));
+        promise1
+            .then(function (response) {
+                //good idea to catch bad http responses
+                //log the status, text, and custom message, etc.
+                if(response.status !== 200) {
+                    console.log(`${response.status}: ${response.statusText}. Check your url.`);
+                }
+            return response.json();
+        }).then(function (data) {
+            console.log(data);
+        }).catch(function (error) {
+            //malform the file link to test
+            console.log(`Ouch: ${error}`)
+        }).finally(function () {
+            //will execute at end
+            //good for loading spinner
+            console.log('finally this happens')
+        })
+        //executes first bc not seeking files or going over the internet
+        console.log('done');
+
+        fetch('https://animechan.vercel.app/api/random')
+            .then(response => response.json())
+            .then(quote => console.log(quote))
+            .catch((error) => console.log(error))
+            .finally(() => console.log("done"))
+
+            // .catch(error => console.error(error));
+            // promise1.catch(response => console.error(error));
         //    can use .finally to clean up in both cases
         // change above example to show the response status code of the call
         // and catch to show and handle a 404
