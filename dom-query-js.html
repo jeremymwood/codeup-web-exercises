@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>DOM: Query and Modify</title>
+</head>
+<body>
+
+<h1 id="main-header">Hello World!</h1>
+<ul>
+    <li data-dbid="1">Item 1</li>
+    <li data-dbid="2">Item 2</li>
+    <li data-dbid="3">Item 3</li>
+    <li data-dbid="4">Item 4</li>
+    <li data-dbid="5">Item 5</li>
+</ul>
+<h2 id="sub-header">Hello Again.</h2>
+<p class="sub-paragraph">
+    first paragraph.
+</p>
+<p class="sub-paragraph">
+    second paragraph.
+</p>
+
+<button id="btn-item-1">Change H1</button>
+<button id="btn-item-2">H2 color</button>
+<button id="btn-item-3">Alternate list items</button>
+<button id="btn-item-4">Change first list item</button>
+<button id="btn-item-5">Mission accomplished!</button>
+
+<div style="margin-top: 1em; border: #231F8C 1px solid; width: 100px; aspect-ratio: 1/1" id="extraPractice">
+
+</div>
+
+<script>
+    (function() {
+        "use strict";
+        // // TODO: Uncomment next line and get the main header element by id
+        // const mainHeader = document.getElementById("main-header");
+        //
+        // // TODO: Set inner html of mainHeader to "JavaScript is Cool"
+        // mainHeader.innerHTML = "JavaScript is Cool";
+
+        // // TODO: Uncomment the next line and get the sub header element by id
+        // const subHeader = document.getElementById("sub-header");
+        //
+        // // TODO: Set the text color of subHeader to blue
+        // subHeader.style.color = "blue";
+
+        // // TODO: Uncomment the next line and get all list items
+        // const listItems = document.getElementsByTagName("li");
+        //
+        // // TODO: Set text color on every other list item to grey
+        // for (let i = 0; i < listItems.length; i++) {
+        //     if (i % 2 === 0) {
+        //         listItems[i].style.color = "gray";
+        //     }
+        // }
+
+        // TODO: Set text color of li with dbid = 1 to blue
+
+            // for (let i = 0; i < listItems.length; i++) {
+            //     let dbId = listItems[i].getAttribute("data-dbid");
+            //
+            //     if (dbId === "1") {
+            //         listItems[i].style.color = "blue";
+            //     }
+            // }
+
+        // **********************
+        // **********************
+        // clayton simpler css selector solution
+        // can work with any selector
+        //     document.querySelector("li[data-dbid='1']").style.color = "blue";
+        // **********************
+        // **********************
+
+        // // TODO: Uncomment the next line and get all elements with class name sub-paragraph
+        // const subParagraphs = document.getElementsByClassName("sub-paragraph");
+        //
+        // // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
+        // subParagraphs[0].innerHTML = "Mission Accomplished!";
+
+
+        // event listeners
+        const listenerH1 = function (event) {
+            const mainHeader = document.getElementById("main-header");
+            mainHeader.innerHTML = "JavaScript is Cool";
+        }
+        document.getElementById('btn-item-1').addEventListener('click', listenerH1);
+
+        const listenerH2 = function (event) {
+            const subHeader = document.getElementById("sub-header");
+            subHeader.style.color = "blue";
+        }
+        document.getElementById('btn-item-2').addEventListener('click', listenerH2);
+
+        const listenerAltColor = function (event) {
+            const listItems = document.getElementsByTagName("li");
+            for (let i = 0; i < listItems.length; i++) {
+                if (i % 2 === 0) {
+                    listItems[i].style.color = "gray";
+                }
+            }
+        }
+        document.getElementById('btn-item-3').addEventListener('click', listenerAltColor);
+
+        const listenerLiColor = function (event) {
+            document.querySelector("li[data-dbid='1']").style.color = "red";
+            document.querySelector("li[data-dbid='1']").style.fontWeight = "bolder";
+        }
+        document.getElementById('btn-item-4').addEventListener('click', listenerLiColor);
+
+        const listenerComplete = function (event) {
+            const subParagraphs = document.getElementsByClassName("sub-paragraph");
+            subParagraphs[0].innerHTML = "Mission Accomplished!";
+        }
+        document.getElementById('btn-item-5').addEventListener('click', listenerComplete);
+
+        //extra credit, use arrow keys to move and color the div
+
+        // document.onkeydown = (e) => {
+        //     e = e || window.event;
+        //     if (e.keyCode === 38) {
+        //         console.log('up arrow pressed');
+        //         const listenerUp = function (event) {
+        //             let extraPractice = document.getElementById("extraPractice");
+        //             extraPractice.style.backgroundColor = "blue";
+        //         // document.getElementById('extraPractice').addEventListener('click', listenerUp);
+        //     }
+        //
+        //     } else if (e.keyCode === 40) {
+        //         console.log('down arrow pressed')
+        //     } else if (e.keyCode === 37) {
+        //         console.log('left arrow pressed')
+        //     } else if (e.keyCode === 39) {
+        //         console.log('right arrow pressed')
+        //     }
+        // }
+    })();
+</script>
+</body>
+</html>
